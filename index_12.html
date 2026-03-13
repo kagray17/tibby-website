@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tibby &amp; Friends</title>
+<link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --red: #E8272A;
+  --red-dark: #C01F22;
+  --red-light: #FF6B6B;
+  --yellow: #FFD93D;
+  --yellow-light: #FFF3B0;
+  --cream: #FFF8F0;
+  --brown: #6B3F2A;
+  --brown-light: #A0522D;
+  --green: #5CB85C;
+  --blue: #4A90D9;
+  --text: #3A2014;
+  --white: #FFFFFF;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
+h1,h2,h3 { font-family:'Bubblegum Sans',cursive; }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--red); box-shadow:0 4px 12px rgba(0,0,0,0.2); display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:68px; }
+.logo { font-family:'Bubblegum Sans',cursive; font-size:1.7rem; color:var(--white); text-shadow:2px 2px 0 var(--red-dark); background:none; border:none; cursor:pointer; display:flex; align-items:center; gap:0.4rem; }
+.nav-links { display:flex; gap:0.3rem; list-style:none; }
+.nav-links button { background:none; border:none; cursor:pointer; font-family:'Bubblegum Sans',cursive; color:var(--white); font-size:1.05rem; padding:0.4rem 0.9rem; border-radius:999px; transition:background 0.2s; }
+.nav-links button:hover { background:rgba(255,255,255,0.22); }
+.nav-external { font-family:'Bubblegum Sans',cursive; color:var(--white); font-size:1.05rem; padding:0.4rem 0.9rem; border-radius:999px; text-decoration:none; transition:background 0.2s; display:block; }
+.nav-external:hover { background:rgba(255,255,255,0.22); }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:6px; }
+.hamburger span { display:block; width:26px; height:3px; background:white; border-radius:3px; }
+
+/* PAGES */
+.page { display:none; min-height:100vh; padding-top:68px; }
+.page.active { display:block; }
+
+/* HERO */
+.hero { background:linear-gradient(160deg,var(--red) 0%,var(--red-dark) 55%,#8B1A1C 100%); color:white; text-align:center; padding:5rem 2rem 4rem; position:relative; overflow:hidden; }
+.hero h1 { font-size:clamp(2.8rem,7vw,5rem); text-shadow:3px 3px 0 var(--red-dark); margin-bottom:0.5rem; }
+.hero-sub { font-size:1.25rem; opacity:0.9; max-width:500px; margin:0 auto 1rem; font-weight:600; }
+.hero-badge { display:inline-block; background:var(--yellow); color:var(--brown); font-family:'Bubblegum Sans',cursive; font-size:0.95rem; padding:0.3rem 1.2rem; border-radius:999px; margin-bottom:1rem; }
+
+/* BOOKS GRID */
+.featured-section { padding:4rem 2rem; max-width:1100px; margin:0 auto; }
+.section-title { font-family:'Bubblegum Sans',cursive; font-size:2rem; color:var(--red); text-align:center; margin-bottom:0.4rem; }
+.section-sub { text-align:center; color:var(--brown-light); margin-bottom:2.5rem; font-size:1.05rem; }
+.books-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2rem; }
+@media(max-width:640px){ .books-grid { grid-template-columns:1fr; } }
+.book-card { background:white; border-radius:16px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.1); border:3px solid transparent; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:transform 0.25s,box-shadow 0.25s; }
+.book-card:hover { transform:translateY(-6px); box-shadow:0 12px 28px rgba(232,39,42,0.2); border-color:var(--red); }
+.book-cover { width:100%; aspect-ratio:1/1; flex-shrink:0; }
+.book-cover-1 { background:linear-gradient(135deg,#E8272A,#FF6B6B); }
+.book-cover-2 { background:linear-gradient(135deg,#FF9A3C,#FFD93D); }
+.book-cover-3 { background:linear-gradient(135deg,#5CB85C,#A8E6CF); }
+.book-cover-4 { background:linear-gradient(135deg,#4A90D9,#A8D8EA); }
+.book-cover-5 { background:linear-gradient(135deg,#9B59B6,#D7BDE2); }
+.book-cover-6 { background:linear-gradient(135deg,#E67E22,#F8C471); }
+.book-cover img { width:100%; height:100%; object-fit:cover; display:block; }
+.book-info { padding:1.6rem 2rem; display:flex; flex-direction:column; gap:0.8rem; flex:1; }
+.book-title-card { font-family:'Bubblegum Sans',cursive; font-size:1.2rem; color:var(--text); line-height:1.4; word-wrap:break-word; }
+.book-desc { font-size:1.05rem; color:#555; line-height:1.7; flex:1; }
+.amazon-btn { display:flex; align-items:center; justify-content:center; gap:0.4rem; background:var(--yellow); color:var(--brown); font-family:'Bubblegum Sans',cursive; font-size:0.95rem; padding:0.6rem 1rem; border-radius:999px; text-decoration:none; border:2px solid var(--brown); box-shadow:0 3px 0 var(--brown); transition:transform 0.15s,box-shadow 0.15s; margin-top:0.5rem; }
+.amazon-btn:hover { transform:translateY(2px); box-shadow:0 1px 0 var(--brown); }
+.add-book-note { text-align:center; margin-top:2.5rem; padding:1.5rem; background:var(--yellow-light); border-radius:16px; border:2px dashed var(--yellow); }
+
+/* PAGE HEADER */
+.page-header { background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%); padding:3.5rem 2rem 5rem; text-align:center; }
+.page-header h1 { color:white; font-size:clamp(2rem,5vw,3.2rem); text-shadow:2px 2px 0 var(--red-dark); }
+.page-header p { color:rgba(255,255,255,0.85); font-size:1.1rem; margin-top:0.5rem; }
+.page-content { max-width:1100px; margin:-2.5rem auto 0; padding:0 2rem 4rem; position:relative; z-index:2; }
+
+/* SHOP */
+.shop-intro { background:white; border-radius:20px; padding:2rem; margin-bottom:2rem; box-shadow:0 4px 16px rgba(0,0,0,0.08); display:flex; align-items:center; gap:1.5rem; }
+.shop-intro-icon { font-size:3.5rem; }
+.shop-categories { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1.5rem; margin-top:2rem; }
+.shop-category { background:white; border-radius:20px; padding:2rem 1rem; text-align:center; box-shadow:0 4px 16px rgba(0,0,0,0.08); transition:transform 0.2s; border:3px solid transparent; text-decoration:none; color:inherit; display:block; }
+.shop-category:hover { transform:translateY(-6px); border-color:var(--red); }
+.shop-category .icon { font-size:3rem; margin-bottom:0.8rem; }
+.shop-category h3 { font-family:'Bubblegum Sans',cursive; font-size:1.1rem; color:var(--red); margin-bottom:0.3rem; }
+.shop-category p { font-size:0.85rem; color:#888; }
+.printify-note { background:linear-gradient(135deg,var(--red),var(--red-light)); color:white; border-radius:16px; padding:1.5rem 2rem; margin-top:2rem; display:flex; align-items:center; gap:1rem; }
+.printify-note h3 { font-family:'Bubblegum Sans',cursive; font-size:1.2rem; }
+.printify-note p { font-size:0.9rem; opacity:0.9; margin-top:0.2rem; }
+
+/* ABOUT */
+.about-card { background:white; border-radius:24px; padding:2.5rem; box-shadow:0 6px 24px rgba(0,0,0,0.08); margin-bottom:2rem; }
+.about-hero { display:flex; gap:2rem; align-items:center; flex-wrap:wrap; }
+.about-avatar { width:140px; height:140px; border-radius:50%; background:linear-gradient(135deg,var(--red),var(--red-light)); display:flex; align-items:center; justify-content:center; font-size:5rem; flex-shrink:0; border:4px solid var(--yellow); }
+.about-text h2 { font-family:'Bubblegum Sans',cursive; font-size:1.8rem; color:var(--red); margin-bottom:0.5rem; }
+.about-text p { line-height:1.7; color:#555; margin-bottom:0.8rem; }
+.about-mission { background:linear-gradient(135deg,var(--yellow-light),#fff); border-left:5px solid var(--yellow); padding:1.5rem; border-radius:12px; margin-top:1.5rem; }
+.about-mission h3 { font-family:'Bubblegum Sans',cursive; font-size:1.3rem; color:var(--brown); margin-bottom:0.5rem; }
+.paw-divider { text-align:center; font-size:1.4rem; letter-spacing:0.5rem; margin:1.5rem 0; opacity:0.3; }
+
+/* CONTACT */
+.contact-wrap { display:grid; grid-template-columns:1fr; gap:2rem; max-width:700px; margin:0 auto; }
+@media(max-width:650px){ .contact-wrap { grid-template-columns:1fr; } }
+.contact-card { background:white; border-radius:20px; padding:2rem; box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+.contact-card h2 { font-family:'Bubblegum Sans',cursive; font-size:1.6rem; color:var(--red); margin-bottom:1rem; }
+.form-group { margin-bottom:1.2rem; }
+.form-group label { display:block; font-weight:700; margin-bottom:0.4rem; color:var(--text); font-size:0.95rem; }
+.form-group input, .form-group textarea, .form-group select { width:100%; padding:0.75rem 1rem; border:2px solid #e0d6d0; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; color:var(--text); background:var(--cream); outline:none; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--red); }
+.form-group textarea { min-height:130px; resize:vertical; }
+.submit-btn { background:var(--red); color:white; font-family:'Bubblegum Sans',cursive; font-size:1.1rem; padding:0.75rem 2rem; border:none; border-radius:999px; cursor:pointer; box-shadow:0 4px 0 var(--red-dark); width:100%; transition:transform 0.15s; }
+.submit-btn:hover { transform:translateY(2px); }
+.contact-info-card { background:linear-gradient(135deg,var(--red),var(--red-dark)); color:white; border-radius:20px; padding:2rem; }
+.contact-info-card h2 { font-family:'Bubblegum Sans',cursive; font-size:1.6rem; margin-bottom:1.5rem; }
+.contact-info-item { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1.2rem; background:rgba(255,255,255,0.12); padding:1rem; border-radius:12px; }
+.contact-info-item .ci-icon { font-size:1.6rem; }
+.contact-info-item h4 { font-weight:700; font-size:0.9rem; opacity:0.8; }
+.social-links { display:flex; gap:0.8rem; margin-top:1.5rem; flex-wrap:wrap; }
+.social-link { background:rgba(255,255,255,0.2); color:white; padding:0.5rem 1.2rem; border-radius:999px; text-decoration:none; font-family:'Bubblegum Sans',cursive; font-size:0.95rem; border:1px solid rgba(255,255,255,0.3); }
+
+/* BUTTONS */
+.shop-cta-btn { display:inline-block; background:var(--yellow); color:var(--brown); font-family:'Bubblegum Sans',cursive; font-size:1rem; padding:0.7rem 2rem; border-radius:999px; text-decoration:none; border:2px solid var(--brown); box-shadow:0 3px 0 var(--brown); cursor:pointer; }
+
+.download-card { background:white; border-radius:16px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.1); border:3px solid transparent; display:flex; flex-direction:column; transition:transform 0.25s,box-shadow 0.25s; }
+.download-card:hover { transform:translateY(-6px); box-shadow:0 12px 28px rgba(232,39,42,0.2); border-color:var(--red); }
+.download-cover { width:100%; aspect-ratio:1/1; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:4rem; }
+
+/* FOOTER */
+footer { background:var(--brown); color:rgba(255,255,255,0.85); text-align:center; padding:2.5rem 1rem; }
+.footer-logo { font-family:'Bubblegum Sans',cursive; font-size:1.6rem; color:white; margin-bottom:0.5rem; }
+.footer-links { display:flex; justify-content:center; gap:1.5rem; margin:1rem 0; flex-wrap:wrap; }
+.footer-links button { background:none; border:none; cursor:pointer; font-family:'Bubblegum Sans',cursive; font-size:1rem; color:var(--yellow); }
+
+/* TOAST */
+.toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(100px); background:var(--green); color:white; font-family:'Bubblegum Sans',cursive; font-size:1.1rem; padding:1rem 2rem; border-radius:999px; z-index:9999; transition:transform 0.4s; }
+.toast.show { transform:translateX(-50%) translateY(0); }
+
+@media(max-width:640px){
+  .nav-links { display:none; flex-direction:column; position:absolute; top:68px; left:0; right:0; background:var(--red-dark); padding:1rem; }
+  .nav-links.open { display:flex; }
+  .hamburger { display:flex; }
+  .about-hero { flex-direction:column; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <!-- ✅ TODO: Replace button below with your logo: <img src="images/logo.png" style="height:44px;"> -->
+  <button class="logo" onclick="showPage('home')"><span>🐾</span> Tibby &amp; Friends</button>
+  <ul class="nav-links" id="navLinks">
+    <li><button onclick="showPage('home')">Home</button></li>
+    <li><button onclick="showPage('books')">Books</button></li>
+    <li><a href="https://tibby-and-friends.printify.me" target="_blank" class="nav-external">Merch Store</a></li>
+    <li><button onclick="showPage('about')">About Us</button></li>
+    <li><button onclick="showPage('contact')">Contact</button></li>
+    <li><button onclick="showPage('downloads')">Downloads</button></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-badge">🐶 A Children's Book Series</div>
+    <h1>Tibby &amp; Friends</h1>
+    <p class="hero-sub">Joyful stories for little readers who love big adventures!</p>
+    <!-- ✅ TODO: Replace src with your image path -->
+    <img src="Images/arms around.png" alt="Tibby and Friends dogs" style="width:min(650px,90vw);margin:1.5rem auto 0;display:block;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.4));"/>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+      <button onclick="scrollToBooks()" style="background:var(--yellow);color:var(--brown);font-family:'Bubblegum Sans',cursive;font-size:1.1rem;padding:0.75rem 2rem;border-radius:999px;border:2px solid var(--brown);box-shadow:0 3px 0 var(--brown);cursor:pointer;">📚 See Our Books</button>
+      <a href="https://tibby-and-friends.printify.me" target="_blank" style="background:var(--yellow);color:var(--brown);font-family:'Bubblegum Sans',cursive;font-size:1.1rem;padding:0.75rem 2rem;border-radius:999px;border:2px solid var(--brown);box-shadow:0 3px 0 var(--brown);cursor:pointer;text-decoration:none;">🛍️ Merch Store</a>
+    </div>
+  </div>
+
+  <div class="featured-section" id="our-books">
+    <h2 class="section-title">📖 Our Books</h2>
+    <p class="section-sub">Click any book to find it on Amazon!</p>
+    <div class="books-grid">
+<a href="https://www.amazon.com/Tibby-Friends-Pizza-Parlor-Patience/dp/B0GK2M1YBZ/" target="_blank" class="book-card">
+        <div class="book-cover book-cover-1"><img src="Images/Pizza Parlor.jpg" alt="Tibby and Friends at the Pizza Parlor"></div>
+        <div class="book-info">
+          <div class="book-title-card">Tibby and Friends at the Pizza Parlor</div>
+          <p class="book-desc">Andy is hungry, grumpy, and running out of patience! With the help of Tibby, Maximus, and Kolbe, Andy learns that waiting for something delicious is worth it—and that being patient can even be fun.</p>
+          <a href="https://www.amazon.com/Tibby-Friends-Pizza-Parlor-Patience/dp/B0GK2M1YBZ/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
+        </div>
+      </a>
+      <a href="https://www.amazon.com/Tibby-Friends-Go-Baseball-Game/dp/B0GKY14SLS/" target="_blank" class="book-card">
+        <div class="book-cover book-cover-2"><img src="Images/Baseball Game.jpg" alt="Tibby and Friends Go to a Baseball Game"></div>
+        <div class="book-info">
+          <div class="book-title-card">Tibby and Friends Go to a Baseball Game</div>
+          <p class="book-desc">Join Tibby, Maximus, and Kolbe as they head out for a tail-wagging day at the baseball field! But the ballpark is loud—and Tibby, who's sensitive to noise, isn't so sure about all the cheering and clapping.</p>
+          <a href="https://www.amazon.com/Tibby-Friends-Go-Baseball-Game/dp/B0GKY14SLS/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
+        </div>
+      </a>
+      <a href="https://www.amazon.com/Tibby-Friends-Make-Lemonade-Stand/dp/B0GKY19KMX/" target="_blank" class="book-card">
+        <div class="book-cover book-cover-3"><img src="Images/Lemonade Stand.jpg" alt="Tibby and Friends Make a Lemonade Stand"></div>
+        <div class="book-info">
+          <div class="book-title-card">Tibby and Friends Make a Lemonade Stand</div>
+          <p class="book-desc">Join Tibby, Maximus, and Kolbe as they team up to build a lemonade stand, mix up something delicious, and spread smiles all around their neighborhood. With wagging tails, big hearts, and a whole lot of teamwork, these friends turn an ordinary day into something truly special.</p>
+          <a href="https://www.amazon.com/Tibby-Friends-Make-Lemonade-Stand/dp/B0GKY19KMX/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
+        </div>
+      </a>
+      <a href="https://www.amazon.com/Tibby-Friends-Lunch-Charlie-Communication/dp/B0GKYFW37H/" target="_blank" class="book-card">
+        <div class="book-cover book-cover-4"><img src="Images/Charlie .jpg" alt="Tibby and Friends Go to Lunch with Charlie"></div>
+        <div class="book-info">
+          <div class="book-title-card">Tibby and Friends Go to Lunch with Charlie</div>
+          <p class="book-desc">Join Tibby and the pups in this heartwarming story about friendship, inclusion, and empathy. When they go to lunch with their friend Charlie, a nonverbal dog who communicates in his own special way, the pups show that true friendship means making everyone feel welcome and understood.</p>
+          <a href="https://www.amazon.com/Tibby-Friends-Lunch-Charlie-Communication/dp/B0GKYFW37H/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- BOOKS PAGE -->
+<div class="page" id="page-books">
+  <div class="page-header">
+    <h1>📚 Our Books</h1>
+    <p>All Tibby &amp; Friends titles — available on Amazon!</p>
+  </div>
+  <div class="page-content">
+    <div class="books-grid">
+<a href="https://www.amazon.com/Tibby-Friends-Pizza-Parlor-Patience/dp/B0GK2M1YBZ/" target="_blank" class="book-card">
+        <div class="book-cover book-cover-1"><img src="Images/Pizza Parlor.jpg" alt="Tibby and Friends at the Pizza Parlor"></div>
+        <div class="book-info">
+          <div class="book-title-card">Tibby and Friends at the Pizza Parlor</div>
+          <p class="book-desc">Andy is hungry, grumpy, and running out of patience! With the help of Tibby, Maximus, and Kolbe, Andy learns that waiting for something delicious is worth it—and that being patient can even be fun.</p>
+          <a href="https://www.amazon.com/Tibby-Friends-Pizza-Parlor-Patience/dp/B0GK2M1YBZ/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
+        </div>
+      </a>
+      <a href="https://www.amazon.com/Tibby-Friends-Go-Baseball-Game/dp/B0GKY14SLS/" target="_blank" class="book-card">
+        <div class="book-cover book-cover-2"><img src="Images/Baseball Game.jpg" alt="Tibby and Friends Go to a Baseball Game"></div>
+        <div class="book-info">
+          <div class="book-title-card">Tibby and Friends Go to a Baseball Game</div>
+          <p class="book-desc">Join Tibby, Maximus, and Kolbe as they head out for a tail-wagging day at the baseball field! But the ballpark is loud—and Tibby, who's sensitive to noise, isn't so sure about all the cheering and clapping.</p>
+          <a href="https://www.amazon.com/Tibby-Friends-Go-Baseball-Game/dp/B0GKY14SLS/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
+        </div>
+      </a>
+      <a href="https://www.amazon.com/Tibby-Friends-Make-Lemonade-Stand/dp/B0GKY19KMX/" target="_blank" class="book-card">
+        <div class="book-cover book-cover-3"><img src="Images/Lemonade Stand.jpg" alt="Tibby and Friends Make a Lemonade Stand"></div>
+        <div class="book-info">
+          <div class="book-title-card">Tibby and Friends Make a Lemonade Stand</div>
+          <p class="book-desc">Join Tibby, Maximus, and Kolbe as they team up to build a lemonade stand, mix up something delicious, and spread smiles all around their neighborhood. With wagging tails, big hearts, and a whole lot of teamwork, these friends turn an ordinary day into something truly special.</p>
+          <a href="https://www.amazon.com/Tibby-Friends-Make-Lemonade-Stand/dp/B0GKY19KMX/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
+        </div>
+      </a>
+      <a href="https://www.amazon.com/Tibby-Friends-Lunch-Charlie-Communication/dp/B0GKYFW37H/" target="_blank" class="book-card">
+        <div class="book-cover book-cover-4"><img src="Images/Charlie .jpg" alt="Tibby and Friends Go to Lunch with Charlie"></div>
+        <div class="book-info">
+          <div class="book-title-card">Tibby and Friends Go to Lunch with Charlie</div>
+          <p class="book-desc">Join Tibby and the pups in this heartwarming story about friendship, inclusion, and empathy. When they go to lunch with their friend Charlie, a nonverbal dog who communicates in his own special way, the pups show that true friendship means making everyone feel welcome and understood.</p>
+          <a href="https://www.amazon.com/Tibby-Friends-Lunch-Charlie-Communication/dp/B0GKYFW37H/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- SHOP PAGE -->
+<div class="page" id="page-shop">
+  <div class="page-header">
+    <h1>🛍️ Tibby's Shop</h1>
+    <p>Adorable merch for your little Tibby fan!</p>
+  </div>
+  <div class="page-content">
+    <div class="shop-intro">
+      <div class="shop-intro-icon">🐾</div>
+      <div>
+        <h2 style="font-family:'Bubblegum Sans',cursive;color:var(--red);font-size:1.4rem;">Tibby &amp; Friends Merch</h2>
+        <p style="color:#666;margin-top:0.3rem;">Bring Tibby home! Browse our collection of fun, high-quality products. Powered by <strong>Printify</strong> — printed fresh just for you!</p>
+      </div>
+    </div>
+    <h2 class="section-title" style="text-align:left;margin-top:2rem;">Browse by Category</h2>
+    <div class="shop-categories">
+      <a href="https://tibby-and-friends.printify.me" target="_blank" class="shop-category"><div class="icon">👕</div><h3>T-Shirts</h3><p>Cozy tees for kids &amp; grown-ups</p></a>
+      <a href="https://tibby-and-friends.printify.me" target="_blank" class="shop-category"><div class="icon">☕</div><h3>Mugs</h3><p>Start mornings with Tibby</p></a>
+      <a href="https://tibby-and-friends.printify.me" target="_blank" class="shop-category"><div class="icon">🎒</div><h3>Bags &amp; Totes</h3><p>Carry Tibby everywhere</p></a>
+      <a href="https://tibby-and-friends.printify.me" target="_blank" class="shop-category"><div class="icon">🖼️</div><h3>Posters &amp; Prints</h3><p>Decorate any little reader's room</p></a>
+      <a href="https://tibby-and-friends.printify.me" target="_blank" class="shop-category"><div class="icon">🧦</div><h3>Socks</h3><p>Paw-some socks for tiny feet</p></a>
+      <a href="https://tibby-and-friends.printify.me" target="_blank" class="shop-category"><div class="icon">🎁</div><h3>All Products</h3><p>See everything in the shop</p></a>
+    </div>
+    <div class="printify-note">
+      <div class="icon" style="font-size:2.5rem;">🖨️</div>
+      <div><h3>Print On Demand via Printify</h3><p>Every item is made to order with love — no waste, always fresh.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="https://tibby-and-friends.printify.me" target="_blank" class="shop-cta-btn">🛒 Visit the Full Shop →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div class="page" id="page-about">
+  <div class="page-header">
+    <h1>🐾 About Us</h1>
+    <p>The story behind Tibby &amp; Friends</p>
+  </div>
+  <div class="page-content">
+    <div class="about-card">
+      <div class="about-hero">
+        <div class="about-avatar" style="overflow:hidden;padding:0;"><img src="Images/Author.JPG" alt="Tibby the author" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+        <div class="about-text">
+          <h2>Meet the Author</h2>
+          <h3 style="font-family:'Bubblegum Sans',cursive;color:var(--red);font-size:1.3rem;margin-bottom:0.8rem;">T. A. Barker</h3>
+          <p>T.A. Barker is a children's author and the proud dog owner of Tibby, the lovable inspiration behind many of his heartwarming stories. Through the adventures of his animal friends, T.A. Barker brings big life lessons to little readers with warmth, humor, and heart.</p>
+        </div>
+      </div>
+      <div class="paw-divider">🐾 🐾 🐾</div>
+      <p style="color:#555;line-height:1.8;margin-bottom:1rem;">His books focus on friendship, kindness, patience, inclusion, and the social-emotional skills children need to thrive. Whether his characters are learning to wait their turn, communicate in unique ways, solve problems together, or support a friend in need, each story gently models positive behaviors in a way that feels natural, relatable, and fun.</p>
+      <p style="color:#555;line-height:1.8;">Inspired by Tibby and the joy animals bring into our lives, T.A. Barker believes stories are powerful tools for raising compassionate, confident kids. When he's not writing, he's dreaming up new adventures where friendship always wins and every character has something special to share.</p>
+      <div class="about-mission" style="margin-top:1.5rem;">
+        <h3>🌟 Our Mission</h3>
+        <p>Every Tibby &amp; Friends book is crafted to bring smiles, teach gentle lessons, and make storytime something kids and parents look forward to together. We believe every child deserves a friend like Tibby.</p>
+      </div>
+    </div>
+    <div class="about-card">
+      <h2 style="color:var(--red);margin-bottom:1rem;">📖 The Series</h2>
+      <p style="color:#555;line-height:1.7;margin-bottom:1rem;">The <strong>Tibby &amp; Friends</strong> series follows Tibby the dog and a cast of wonderful friends through colorful, imaginative adventures. Each book is designed for young readers with vibrant illustrations and simple, engaging storytelling.</p>
+      <p style="color:#555;line-height:1.7;">All books are available on <strong>Amazon</strong>, with more titles being added to the series regularly!</p>
+      <div style="margin-top:1.5rem;">
+        <button onclick="showPage('books')" class="shop-cta-btn">📚 See All Books →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div class="page" id="page-contact">
+  <div class="page-header">
+    <h1>💌 Contact Us</h1>
+    <p>We'd love to hear from you!</p>
+  </div>
+  <div class="page-content">
+    <div class="contact-wrap">
+      <div class="contact-card">
+        <h2>Send Us a Message</h2>
+        <div class="form-group"><label>Your Name</label><input type="text" id="contactName" placeholder="e.g. Lily Johnson"/></div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="contactEmail" placeholder="your@email.com"/></div>
+        <div class="form-group"><label>Subject</label>
+          <select id="contactSubject">
+            <option value="">Select a topic...</option>
+            <option>General Question</option>
+            <option>Book Inquiry</option>
+            <option>Shop / Merch</option>
+            <option>School or Library Visit</option>
+            <option>Media / Press</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea id="contactMessage" placeholder="Tell us what's on your mind! 🐾"></textarea></div>
+        <button class="submit-btn" onclick="handleContact()">🐾 Send Message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- DOWNLOADS PAGE -->
+<div class="page" id="page-downloads">
+  <div class="page-header">
+    <h1>🎨 Free Downloads</h1>
+    <p>Free activity sheets &amp; coloring pages for your little reader!</p>
+  </div>
+  <div class="page-content">
+
+    <div style="background:white;border-radius:20px;padding:2rem;margin-bottom:2rem;box-shadow:0 4px 16px rgba(0,0,0,0.08);text-align:center;">
+      <p style="font-size:1.1rem;color:#555;line-height:1.7;">All downloads are completely free! Print them at home and enjoy some Tibby &amp; Friends fun.</p>
+    </div>
+
+    <div class="books-grid" id="downloadsGrid">
+
+<div class="download-card">
+        <div class="download-cover book-cover-1">
+          <img src="Downloads/Coloring Page 1 .jpg" alt="Coloring Page 1" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="book-info">
+          <div class="book-title-card">🍕 Pizza Parlor Coloring Page 1</div>
+          <p class="book-desc">Color the gang heading to the Pizza Parlor!</p>
+          <a href="Downloads/Coloring Page 1 .jpg" download class="amazon-btn" style="background:var(--red);color:white;border-color:var(--red-dark);box-shadow:0 3px 0 var(--red-dark);">⬇️ Download Free</a>
+        </div>
+      </div>
+
+      <div class="download-card">
+        <div class="download-cover book-cover-2">
+          <img src="Downloads/Coloring Page 2.jpg" alt="Coloring Page 2" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="book-info">
+          <div class="book-title-card">🍕 Pizza Parlor Coloring Page 2</div>
+          <p class="book-desc">Color the pups getting their pizza delivered!</p>
+          <a href="Downloads/Coloring Page 2.jpg" download class="amazon-btn" style="background:var(--red);color:white;border-color:var(--red-dark);box-shadow:0 3px 0 var(--red-dark);">⬇️ Download Free</a>
+        </div>
+      </div>
+
+      <div class="download-card">
+        <div class="download-cover book-cover-3">
+          <img src="Downloads/Coloring Page 3.jpg" alt="Coloring Page 3" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="book-info">
+          <div class="book-title-card">🍕 Pizza Parlor Coloring Page 3</div>
+          <p class="book-desc">Color the friends enjoying their pizza feast!</p>
+          <a href="Downloads/Coloring Page 3.jpg" download class="amazon-btn" style="background:var(--red);color:white;border-color:var(--red-dark);box-shadow:0 3px 0 var(--red-dark);">⬇️ Download Free</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">🐾 Tibby &amp; Friends</div>
+  <div class="footer-links">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('books')">Books</button>
+    <a href="https://tibby-and-friends.printify.me" target="_blank" style="background:none;border:none;cursor:pointer;font-family:'Bubblegum Sans',cursive;font-size:1rem;color:var(--yellow);text-decoration:none;">Merch Store</a>
+    <button onclick="showPage('about')">About</button>
+    <button onclick="showPage('contact')">Contact</button>
+    <button onclick="showPage('downloads')">Downloads</button>
+  </div>
+  <p>© 2025 Tibby &amp; Friends. All rights reserved.</p>
+  <p style="margin-top:0.4rem;">Books available on <strong style="color:var(--yellow);">Amazon</strong> · Merch via <strong style="color:var(--yellow);">Printify</strong></p>
+</footer>
+
+<div class="toast" id="toast">✅ Message sent! We'll be in touch soon 🐾</div>
+
+<script>
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+  document.getElementById('page-' + name).classList.add('active');
+  window.scrollTo(0, 0);
+  closeMenu();
+}
+function scrollToBooks() {
+  var isHome = document.getElementById('page-home').classList.contains('active');
+  if (isHome) {
+    document.getElementById('our-books').scrollIntoView({ behavior: 'smooth' });
+  } else {
+    showPage('home');
+    setTimeout(function(){ document.getElementById('our-books').scrollIntoView({ behavior: 'smooth' }); }, 150);
+  }
+}
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('navLinks').classList.remove('open');
+}
+function handleContact() {
+  var name = document.getElementById('contactName').value.trim();
+  var email = document.getElementById('contactEmail').value.trim();
+  var msg = document.getElementById('contactMessage').value.trim();
+  if (!name || !email || !msg) { alert('Please fill in your name, email, and message!'); return; }
+  var subject = document.getElementById('contactSubject').value || 'Tibby & Friends Inquiry';
+  var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + msg;
+  window.location.href = 'mailto:hello@tibbyandfriends.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  var t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 3500);
+}
+</script>
+</body>
+</html>
