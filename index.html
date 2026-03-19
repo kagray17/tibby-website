@@ -117,6 +117,13 @@ nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--red
 .social-links { display:flex; gap:0.8rem; margin-top:1.5rem; flex-wrap:wrap; }
 .social-link { background:rgba(255,255,255,0.2); color:white; padding:0.5rem 1.2rem; border-radius:999px; text-decoration:none; font-family:'Bubblegum Sans',cursive; font-size:0.95rem; border:1px solid rgba(255,255,255,0.3); }
 
+/* DOWNLOAD FILTER BUTTONS */
+.download-filters { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:2rem; }
+.filter-btn { background:var(--yellow); color:var(--brown); font-family:'Bubblegum Sans',cursive; font-size:1.05rem; padding:0.7rem 1.8rem; border-radius:999px; border:2px solid var(--brown); box-shadow:0 3px 0 var(--brown); cursor:pointer; transition:transform 0.15s,box-shadow 0.15s; }
+.filter-btn:hover { transform:translateY(2px); box-shadow:0 1px 0 var(--brown); }
+.filter-btn.active { background:var(--red); color:white; border-color:var(--red-dark); box-shadow:0 3px 0 var(--red-dark); transform:translateY(2px); }
+.no-downloads { text-align:center; padding:3rem; color:#888; font-size:1.1rem; display:none; }
+
 /* BUTTONS */
 .shop-cta-btn { display:inline-block; background:var(--yellow); color:var(--brown); font-family:'Bubblegum Sans',cursive; font-size:1rem; padding:0.7rem 2rem; border-radius:999px; text-decoration:none; border:2px solid var(--brown); box-shadow:0 3px 0 var(--brown); cursor:pointer; }
 
@@ -139,6 +146,51 @@ footer { background:var(--brown); color:rgba(255,255,255,0.85); text-align:cente
   .nav-links.open { display:flex; }
   .hamburger { display:flex; }
   .about-hero { flex-direction:column; text-align:center; }
+}
+</style>
+
+<!-- MAILERLITE -->
+<style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1773740");</style>
+<style type="text/css">
+.ml-form-embedSubmitLoad{display:inline-block;width:20px;height:20px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+.ml-form-embedSubmitLoad:after{content:" ";display:block;width:11px;height:11px;margin:1px;border-radius:50%;border:4px solid #fff;border-color:#ffffff #ffffff #ffffff transparent;animation:ml-form-embedSubmitLoad 1.2s linear infinite;}
+@keyframes ml-form-embedSubmitLoad{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+#mlb2-38679545.ml-form-embedContainer{box-sizing:border-box;display:table;margin:0 auto;position:static;width:100%!important;}
+#mlb2-38679545.ml-form-embedContainer h4,#mlb2-38679545.ml-form-embedContainer p,#mlb2-38679545.ml-form-embedContainer span,#mlb2-38679545.ml-form-embedContainer button{text-transform:none!important;letter-spacing:normal!important;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper{background-color:transparent;border-width:0;border-color:transparent;border-radius:4px;border-style:solid;box-sizing:border-box;display:inline-block!important;margin:0;padding:0;position:relative;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper.embedForm{max-width:600px;width:100%;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-align-center{text-align:center;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody{padding:0;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody.ml-form-embedBodyHorizontal{padding-bottom:0;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent,#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent{text-align:center;margin:0 0 16px 0;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent h4,#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4{font-family:'Bubblegum Sans',cursive;font-size:1.8rem;font-weight:400;margin:0 0 6px 0;color:#fff;text-align:center;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p,#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p{font-family:'Nunito',sans-serif;font-size:1rem;font-weight:600;line-height:1.6;margin:0;color:rgba(255,255,255,0.9);text-align:center;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p:last-child{margin:0;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody form{margin:0;width:100%;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent.horozintalForm{margin:0;padding:0;width:100%;float:left;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow{height:auto;width:100%;float:left;}
+.ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal{width:70%;float:left;}
+.ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-button-horizontal{width:30%;float:left;}
+.ml-form-formContent.horozintalForm .ml-form-horizontalRow .horizontal-fields{box-sizing:border-box;float:left;padding-right:10px;width:100%;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input{background-color:#fff;color:#333;border-color:#ccc;border-radius:999px;border-style:solid;border-width:2px;font-family:'Nunito',sans-serif;font-size:1rem;line-height:20px;margin:0;padding:12px 20px;width:100%;box-sizing:border-box;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button{background-color:#FFD93D!important;border-color:#6B3F2A!important;border-style:solid!important;border-width:2px!important;border-radius:999px!important;box-shadow:0 3px 0 #6B3F2A!important;color:#6B3F2A!important;cursor:pointer;font-family:'Bubblegum Sans',cursive!important;font-size:1rem!important;font-weight:700;line-height:20px;margin:0!important;padding:12px 20px!important;width:100%;height:auto;transition:transform 0.15s,box-shadow 0.15s;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button:hover{transform:translateY(2px);box-shadow:0 1px 0 #6B3F2A!important;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit{margin:0 0 20px 0;float:left;width:100%;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button{background-color:#FFD93D!important;border:2px solid #6B3F2A!important;border-radius:999px!important;box-shadow:0 3px 0 #6B3F2A!important;color:#6B3F2A!important;cursor:pointer;font-family:'Bubblegum Sans',cursive!important;font-size:1rem!important;font-weight:700!important;height:auto;padding:12px 20px!important;width:100%!important;box-sizing:border-box!important;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover{transform:translateY(2px);box-shadow:0 1px 0 #6B3F2A!important;}
+#mlb2-38679545.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button.loading{display:none;}
+.ml-error input,.ml-error textarea,.ml-error select{border-color:red!important;}
+.ml-mobileButton-horizontal{display:none;}
+#mlb2-38679545 .ml-mobileButton-horizontal button{background-color:#FFD93D!important;border-color:#6B3F2A!important;border-style:solid!important;border-width:2px!important;border-radius:999px!important;box-shadow:0 3px 0 #6B3F2A!important;color:#6B3F2A!important;cursor:pointer;font-family:'Bubblegum Sans',cursive!important;font-size:1rem!important;font-weight:700!important;padding:12px 20px!important;width:100%!important;}
+@media only screen and (max-width:400px){
+  .ml-form-embedWrapper.embedForm{width:100%!important;}
+  .ml-form-formContent.horozintalForm{float:left!important;}
+  .ml-form-formContent.horozintalForm .ml-form-horizontalRow{height:auto!important;width:100%!important;float:left!important;}
+  .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal{width:100%!important;}
+  .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal>div{padding-right:0!important;padding-bottom:10px;}
+  .ml-form-formContent.horozintalForm .ml-button-horizontal{display:none!important;}
+  .ml-mobileButton-horizontal{display:inline-block!important;margin-bottom:20px;width:100%;}
 }
 </style>
 </head>
@@ -211,6 +263,61 @@ footer { background:var(--brown); color:rgba(255,255,255,0.85); text-align:cente
     </div>
 
   </div>
+
+  <!-- NEWSLETTER -->
+  <div style="background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);padding:4rem 2rem;text-align:center;">
+    <div style="max-width:600px;margin:0 auto;">
+      <div style="font-size:2.5rem;margin-bottom:0.5rem;">🐾</div>
+      <div id="mlb2-38679545" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38679545">
+        <div class="ml-form-align-center">
+          <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody ml-form-embedBodyHorizontal row-form">
+              <div class="ml-form-embedContent">
+                <h4>Stay in the Loop!</h4>
+                <p>Sign up for news on new books, free downloads, and special offers!</p>
+              </div>
+              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2204811/forms/182334761001288864/subscribe" data-code="" method="post" target="_blank">
+                <div class="ml-form-formContent horozintalForm">
+                  <div class="ml-form-horizontalRow">
+                    <div class="ml-input-horizontal">
+                      <div style="width:100%;" class="horizontal-fields">
+                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                          <input type="email" class="form-control" name="fields[email]" placeholder="Your email address" autocomplete="email">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ml-button-horizontal primary">
+                      <button type="submit" class="primary">Subscribe</button>
+                      <button disabled="disabled" style="display:none;" type="button" class="loading">
+                        <div class="ml-form-embedSubmitLoad"></div>
+                        <span class="sr-only">Loading...</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <input type="hidden" name="ml-submit" value="1">
+                <div class="ml-mobileButton-horizontal">
+                  <button type="submit" class="primary">Subscribe</button>
+                  <button disabled="disabled" style="display:none;" type="button" class="loading">
+                    <div class="ml-form-embedSubmitLoad"></div>
+                    <span class="sr-only">Loading...</span>
+                  </button>
+                </div>
+                <input type="hidden" name="anticsrf" value="true">
+              </form>
+            </div>
+            <div class="ml-form-successBody row-success" style="display:none;">
+              <div class="ml-form-successContent">
+                <h4>You're in! 🎉</h4>
+                <p>Thanks for subscribing — we'll keep you posted on all things Tibby!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- BOOKS PAGE -->
@@ -368,42 +475,43 @@ footer { background:var(--brown); color:rgba(255,255,255,0.85); text-align:cente
       <p style="font-size:1.1rem;color:#555;line-height:1.7;">All downloads are completely free! Print them at home and enjoy some Tibby &amp; Friends fun.</p>
     </div>
 
+    <div class="download-filters">
+      <button class="filter-btn active" onclick="filterDownloads('coloring-pages', this)">🎨 Coloring Pages</button>
+      <button class="filter-btn" onclick="filterDownloads('activities', this)">✏️ Activities</button>
+      <button class="filter-btn" onclick="filterDownloads('word-searches', this)">🔤 Word Searches</button>
+    </div>
+
     <div class="books-grid" id="downloadsGrid">
 
-<div class="download-card">
-        <div class="download-cover book-cover-1">
-          <img src="Downloads/Coloring Page 1 .jpg" alt="Coloring Page 1" style="width:100%;height:100%;object-fit:cover;">
-        </div>
+      <div class="download-card" data-category="coloring-pages">
+        <div class="download-cover book-cover-1"><img src="Downloads/Coloring Page.png" alt="Coloring Page preview" style="width:100%;height:100%;object-fit:cover;"></div>
         <div class="book-info">
-          <div class="book-title-card">🍕 Pizza Parlor Coloring Page 1</div>
-          <p class="book-desc">Color the gang heading to the Pizza Parlor!</p>
-          <a href="Downloads/Coloring Page 1 .jpg" download class="amazon-btn" style="background:var(--red);color:white;border-color:var(--red-dark);box-shadow:0 3px 0 var(--red-dark);">⬇️ Download Free</a>
+          <div class="book-title-card">🎨 Tibby &amp; Friends Coloring Page</div>
+          <p class="book-desc">Print and color your favorite Tibby &amp; Friends characters!</p>
+          <a href="Downloads/Coloring Page.pdf" download class="amazon-btn" style="background:var(--red);color:white;border-color:var(--red-dark);box-shadow:0 3px 0 var(--red-dark);">⬇️ Download Free</a>
         </div>
       </div>
 
-      <div class="download-card">
-        <div class="download-cover book-cover-2">
-          <img src="Downloads/Coloring Page 2.jpg" alt="Coloring Page 2" style="width:100%;height:100%;object-fit:cover;">
-        </div>
+      <div class="download-card" data-category="activities" style="display:none;">
+        <div class="download-cover book-cover-2"><img src="Downloads/Fill in the Blank.png" alt="Fill in the Blank preview" style="width:100%;height:100%;object-fit:cover;"></div>
         <div class="book-info">
-          <div class="book-title-card">🍕 Pizza Parlor Coloring Page 2</div>
-          <p class="book-desc">Color the pups getting their pizza delivered!</p>
-          <a href="Downloads/Coloring Page 2.jpg" download class="amazon-btn" style="background:var(--red);color:white;border-color:var(--red-dark);box-shadow:0 3px 0 var(--red-dark);">⬇️ Download Free</a>
+          <div class="book-title-card">✏️ Fill in the Blank Activity</div>
+          <p class="book-desc">A fun fill-in-the-blank activity sheet for young readers!</p>
+          <a href="Downloads/Fill in the Blank.pdf" download class="amazon-btn" style="background:var(--red);color:white;border-color:var(--red-dark);box-shadow:0 3px 0 var(--red-dark);">⬇️ Download Free</a>
         </div>
       </div>
 
-      <div class="download-card">
-        <div class="download-cover book-cover-3">
-          <img src="Downloads/Coloring Page 3.jpg" alt="Coloring Page 3" style="width:100%;height:100%;object-fit:cover;">
-        </div>
+      <div class="download-card" data-category="word-searches" style="display:none;">
+        <div class="download-cover book-cover-4"><img src="Downloads/Word Search.png" alt="Word Search preview" style="width:100%;height:100%;object-fit:cover;"></div>
         <div class="book-info">
-          <div class="book-title-card">🍕 Pizza Parlor Coloring Page 3</div>
-          <p class="book-desc">Color the friends enjoying their pizza feast!</p>
-          <a href="Downloads/Coloring Page 3.jpg" download class="amazon-btn" style="background:var(--red);color:white;border-color:var(--red-dark);box-shadow:0 3px 0 var(--red-dark);">⬇️ Download Free</a>
+          <div class="book-title-card">🔤 Tibby &amp; Friends Word Search</div>
+          <p class="book-desc">Can you find all the hidden words? A great activity for little readers!</p>
+          <a href="Downloads/Word Search.pdf" download class="amazon-btn" style="background:var(--red);color:white;border-color:var(--red-dark);box-shadow:0 3px 0 var(--red-dark);">⬇️ Download Free</a>
         </div>
       </div>
 
     </div>
+    <p class="no-downloads" id="noDownloads">🐾 More coming soon!</p>
   </div>
 </div>
 
@@ -445,6 +553,17 @@ function toggleMenu() {
 function closeMenu() {
   document.getElementById('navLinks').classList.remove('open');
 }
+function filterDownloads(category, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  var cards = document.querySelectorAll('#downloadsGrid .download-card');
+  var visible = 0;
+  cards.forEach(function(card){
+    if (card.dataset.category === category) { card.style.display = ''; visible++; }
+    else { card.style.display = 'none'; }
+  });
+  document.getElementById('noDownloads').style.display = visible === 0 ? 'block' : 'none';
+}
 function handleContact() {
   var name = document.getElementById('contactName').value.trim();
   var email = document.getElementById('contactEmail').value.trim();
@@ -458,5 +577,16 @@ function handleContact() {
   setTimeout(function(){ t.classList.remove('show'); }, 3500);
 }
 </script>
+
+<!-- MAILERLITE SCRIPTS -->
+<script>
+  function ml_webform_success_38679545() {
+    var $ = ml_jQuery || jQuery;
+    $('.ml-subscribe-form-38679545 .row-success').show();
+    $('.ml-subscribe-form-38679545 .row-form').hide();
+  }
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+<script>fetch("https://assets.mailerlite.com/jsonp/2204811/forms/182334761001288864/takel")</script>
 </body>
 </html>
