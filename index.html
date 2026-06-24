@@ -236,6 +236,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
+  <div style="background:linear-gradient(135deg,#FFF3B0,#FFF8F0);padding:3rem 2rem 2rem;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <h2 class="section-title">🆕 New Release!</h2>
+      <p class="section-sub">Hot off the press — celebrate the 4th with Tibby!</p>
+      <div style="max-width:480px;margin:0 auto;">
+        <a href="https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/ref=tmm_pap_swatch_0" target="_blank" class="book-card">
+          <div class="book-cover" style="aspect-ratio:1838/2775;"><img src="Images/4th of July.jpg" alt="Tibby and Friends Celebrate the 4th of July"></div>
+          <div class="book-info">
+            <div class="book-title-card">Tibby and Friends Celebrate the 4th of July</div>
+            <p class="book-desc">While the loud booms and bright lights are a lot for Tibby, he comes prepared with his headphones and sunglasses to stay comfortable and still enjoy the fun. Join Tibby and Friends as they enjoy a backyard barbecue, games, sweet summer treats, and dazzling fireworks on the 4th of July.</p>
+            <a href="https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/ref=tmm_pap_swatch_0" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <div class="featured-section" id="our-books">
     <h2 class="section-title">📖 Our Books</h2>
     <p class="section-sub">Click any book to find it on Amazon!</p>
@@ -340,6 +357,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="page-content">
     <div class="books-grid">
+<a href="https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/ref=tmm_pap_swatch_0" target="_blank" class="book-card">
+        <div class="book-cover" style="aspect-ratio:1838/2775;"><img src="Images/4th of July.jpg" alt="Tibby and Friends Celebrate the 4th of July"></div>
+        <div class="book-info">
+          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.2rem;">
+            <span style="background:var(--red);color:white;font-family:'Bubblegum Sans',cursive;font-size:0.75rem;padding:0.2rem 0.7rem;border-radius:999px;">NEW</span>
+            <div class="book-title-card">Tibby and Friends Celebrate the 4th of July</div>
+          </div>
+          <p class="book-desc">While the loud booms and bright lights are a lot for Tibby, he comes prepared with his headphones and sunglasses to stay comfortable and still enjoy the fun. Join Tibby and Friends as they enjoy a backyard barbecue, games, sweet summer treats, and dazzling fireworks on the 4th of July.</p>
+          <a href="https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/ref=tmm_pap_swatch_0" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
+        </div>
+      </a>
 <a href="https://www.amazon.com/Tibby-Friends-Pizza-Parlor-Patience/dp/B0GK2M1YBZ/" target="_blank" class="book-card">
         <div class="book-cover book-cover-1"><img src="Images/Pizza Parlor.jpg" alt="Tibby and Friends at the Pizza Parlor"></div>
         <div class="book-info">
@@ -454,21 +482,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="contact-wrap">
       <div class="contact-card">
         <h2>Send Us a Message</h2>
-        <div class="form-group"><label>Your Name</label><input type="text" id="contactName" placeholder="e.g. Lily Johnson"/></div>
-        <div class="form-group"><label>Email Address</label><input type="email" id="contactEmail" placeholder="your@email.com"/></div>
-        <div class="form-group"><label>Subject</label>
-          <select id="contactSubject">
-            <option value="">Select a topic...</option>
-            <option>General Question</option>
-            <option>Book Inquiry</option>
-            <option>Shop / Merch</option>
-            <option>School or Library Visit</option>
-            <option>Media / Press</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Message</label><textarea id="contactMessage" placeholder="Tell us what's on your mind! 🐾"></textarea></div>
-        <button class="submit-btn" onclick="handleContact()">🐾 Send Message</button>
+        <form id="contactForm">
+          <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="e.g. Lily Johnson" required/></div>
+          <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required/></div>
+          <div class="form-group"><label>Subject</label>
+            <select name="subject">
+              <option value="">Select a topic...</option>
+              <option>General Question</option>
+              <option>Book Inquiry</option>
+              <option>Shop / Merch</option>
+              <option>School or Library Visit</option>
+              <option>Media / Press</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell us what's on your mind! 🐾" required></textarea></div>
+          <button type="submit" class="submit-btn" id="contactSubmitBtn">🐾 Send Message</button>
+        </form>
       </div>
     </div>
   </div>
@@ -709,18 +739,32 @@ function filterDownloads(category, btn) {
   });
   document.getElementById('noDownloads').style.display = visible === 0 ? 'block' : 'none';
 }
-function handleContact() {
-  var name = document.getElementById('contactName').value.trim();
-  var email = document.getElementById('contactEmail').value.trim();
-  var msg = document.getElementById('contactMessage').value.trim();
-  if (!name || !email || !msg) { alert('Please fill in your name, email, and message!'); return; }
-  var subject = document.getElementById('contactSubject').value || 'Tibby & Friends Inquiry';
-  var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + msg;
-  window.location.href = 'mailto:hello@tibbyandfriends.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  var t = document.getElementById('toast');
-  t.classList.add('show');
-  setTimeout(function(){ t.classList.remove('show'); }, 3500);
-}
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var btn = document.getElementById('contactSubmitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  var data = new FormData(e.target);
+  try {
+    var res = await fetch('https://formspree.io/f/mpqgwvky', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      e.target.reset();
+      var t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(function(){ t.classList.remove('show'); }, 3500);
+    } else {
+      alert('Something went wrong. Please try again!');
+    }
+  } catch(err) {
+    alert('Something went wrong. Please try again!');
+  }
+  btn.disabled = false;
+  btn.textContent = '🐾 Send Message';
+});
 </script>
 
 <!-- MAILERLITE SCRIPTS -->
