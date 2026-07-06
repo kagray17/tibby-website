@@ -245,7 +245,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="cs-book-label">Coming Soon!</div>
         </div>
       </div>
-      <button class="cs-dismiss" onclick="closeComingSoon(null)">Can't wait! 🎉</button>
+      <p style="text-align:center;font-weight:700;color:var(--brown);margin-bottom:0.8rem;">Get notified when they launch! 🐾</p>
+      <div id="csSubscribeForm">
+        <div style="display:flex;gap:0.5rem;margin-bottom:0.8rem;">
+          <input type="email" id="csEmail" placeholder="your@email.com" style="flex:1;padding:0.7rem 1rem;border:2px solid #e0d6d0;border-radius:999px;font-family:'Nunito',sans-serif;font-size:1rem;outline:none;">
+          <button onclick="csSubscribe()" style="background:var(--red);color:white;font-family:'Bubblegum Sans',cursive;font-size:1rem;padding:0.7rem 1.2rem;border-radius:999px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 3px 0 var(--red-dark);">Notify Me!</button>
+        </div>
+      </div>
+      <div id="csSubSuccess" style="display:none;text-align:center;color:var(--green);font-family:'Bubblegum Sans',cursive;font-size:1.2rem;margin-bottom:0.8rem;">🎉 You're on the list!</div>
+      <button class="cs-dismiss" onclick="closeComingSoon(null)">Maybe later</button>
     </div>
   </div>
 </div>
@@ -756,6 +764,24 @@ window.addEventListener('load', function() {
     setTimeout(function() { overlay.classList.add('show'); }, 10);
   }, 600);
 });
+async function csSubscribe() {
+  var email = document.getElementById('csEmail').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('csEmail').style.borderColor = 'var(--red)';
+    return;
+  }
+  var data = new FormData();
+  data.append('fields[email]', email);
+  data.append('ml-submit', '1');
+  data.append('anticsrf', 'true');
+  try {
+    await fetch('https://assets.mailerlite.com/jsonp/2204811/forms/182334761001288864/subscribe', {
+      method: 'POST', body: data, mode: 'no-cors'
+    });
+  } catch(e) {}
+  document.getElementById('csSubscribeForm').style.display = 'none';
+  document.getElementById('csSubSuccess').style.display = 'block';
+}
 function closeComingSoon(e) {
   if (e && e.target !== document.getElementById('csOverlay')) return;
   var overlay = document.getElementById('csOverlay');
