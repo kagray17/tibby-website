@@ -145,6 +145,23 @@ footer { background:var(--brown); color:rgba(255,255,255,0.85); text-align:cente
 .footer-links { display:flex; justify-content:center; gap:1.5rem; margin:1rem 0; flex-wrap:wrap; }
 .footer-links button { background:none; border:none; cursor:pointer; font-family:'Bubblegum Sans',cursive; font-size:1rem; color:var(--yellow); }
 
+/* COMING SOON MODAL */
+.cs-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.65); z-index:2000; align-items:center; justify-content:center; padding:1rem; opacity:0; transition:opacity 0.35s; }
+.cs-overlay.show { opacity:1; }
+.cs-modal { background:white; border-radius:24px; max-width:520px; width:100%; overflow:hidden; box-shadow:0 24px 64px rgba(0,0,0,0.45); transform:translateY(32px) scale(0.97); transition:transform 0.35s; position:relative; }
+.cs-overlay.show .cs-modal { transform:translateY(0) scale(1); }
+.cs-header { background:linear-gradient(135deg,var(--red),var(--red-dark)); color:white; padding:1.6rem 2rem 1.4rem; text-align:center; }
+.cs-header h2 { font-family:'Bubblegum Sans',cursive; font-size:2rem; text-shadow:2px 2px 0 var(--red-dark); margin-bottom:0.2rem; }
+.cs-header p { opacity:0.9; font-size:1rem; font-weight:600; }
+.cs-close { position:absolute; top:0.9rem; right:1rem; background:rgba(255,255,255,0.2); border:none; color:white; font-size:1.2rem; width:32px; height:32px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.cs-close:hover { background:rgba(255,255,255,0.35); }
+.cs-body { padding:1.5rem 2rem 2rem; }
+.cs-books { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-bottom:1.5rem; }
+.cs-book img { width:100%; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.15); display:block; }
+.cs-book-label { font-family:'Bubblegum Sans',cursive; text-align:center; margin-top:0.6rem; font-size:0.95rem; color:var(--brown); background:var(--yellow-light); border-radius:999px; padding:0.2rem 0.6rem; display:inline-block; width:100%; }
+.cs-dismiss { display:block; width:100%; background:var(--yellow); color:var(--brown); font-family:'Bubblegum Sans',cursive; font-size:1.1rem; padding:0.75rem; border-radius:999px; border:2px solid var(--brown); box-shadow:0 3px 0 var(--brown); cursor:pointer; transition:transform 0.15s,box-shadow 0.15s; }
+.cs-dismiss:hover { transform:translateY(2px); box-shadow:0 1px 0 var(--brown); }
+
 /* TOAST */
 .toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(100px); background:var(--green); color:white; font-family:'Bubblegum Sans',cursive; font-size:1.1rem; padding:1rem 2rem; border-radius:999px; z-index:9999; transition:transform 0.4s; }
 .toast.show { transform:translateX(-50%) translateY(0); }
@@ -207,6 +224,31 @@ footer { background:var(--brown); color:rgba(255,255,255,0.85); text-align:cente
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKR3FJHS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+<!-- COMING SOON MODAL -->
+<div class="cs-overlay" id="csOverlay" onclick="closeComingSoon(event)">
+  <div class="cs-modal">
+    <div class="cs-header">
+      <button class="cs-close" onclick="closeComingSoon(null)">✕</button>
+      <div style="font-size:2.2rem;margin-bottom:0.4rem;">🐾</div>
+      <h2>Coming Soon!</h2>
+      <p>Two brand-new Tibby books are on the way!</p>
+    </div>
+    <div class="cs-body">
+      <div class="cs-books">
+        <div class="cs-book">
+          <img src="Images/Hiking.png" alt="New Tibby Hiking Book">
+          <div class="cs-book-label">Coming Soon!</div>
+        </div>
+        <div class="cs-book">
+          <img src="Images/Halloween.png" alt="New Tibby Halloween Book">
+          <div class="cs-book-label">Coming Soon!</div>
+        </div>
+      </div>
+      <button class="cs-dismiss" onclick="closeComingSoon(null)">Can't wait! 🎉</button>
+    </div>
+  </div>
+</div>
 
 <nav>
   <!-- ✅ TODO: Replace button below with your logo: <img src="images/logo.png" style="height:44px;"> -->
@@ -707,6 +749,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="toast" id="toast">✅ Message sent! We'll be in touch soon 🐾</div>
 
 <script>
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var overlay = document.getElementById('csOverlay');
+    overlay.style.display = 'flex';
+    setTimeout(function() { overlay.classList.add('show'); }, 10);
+  }, 600);
+});
+function closeComingSoon(e) {
+  if (e && e.target !== document.getElementById('csOverlay')) return;
+  var overlay = document.getElementById('csOverlay');
+  overlay.classList.remove('show');
+  setTimeout(function() { overlay.style.display = 'none'; }, 350);
+}
+
 function showPage(name) {
   document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
   document.getElementById('page-' + name).classList.add('active');
