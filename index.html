@@ -255,7 +255,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p style="font-family:'Bubblegum Sans',cursive;font-size:1.3rem;color:var(--green);">You're on the list!</p>
         <p style="font-size:0.95rem;color:#888;margin-top:0.3rem;">We'll let you know the moment they launch.</p>
       </div>
-      <button onclick="closeComingSoon(null)" style="display:block;width:100%;background:none;border:none;cursor:pointer;font-family:'Nunito',sans-serif;font-size:0.9rem;color:#aaa;padding:0.4rem;margin-top:0.2rem;">No thanks</button>
+      <button id="csDismissBtn" onclick="closeComingSoon(null)" style="display:block;width:100%;background:none;border:none;cursor:pointer;font-family:'Nunito',sans-serif;font-size:0.9rem;color:#aaa;padding:0.4rem;margin-top:0.2rem;">No thanks</button>
     </div>
   </div>
 </div>
@@ -783,6 +783,10 @@ async function csSubscribe() {
   } catch(e) {}
   document.getElementById('csSubscribeForm').style.display = 'none';
   document.getElementById('csSubSuccess').style.display = 'block';
+  var dismissBtn = document.getElementById('csDismissBtn');
+  dismissBtn.textContent = '🐾 Close';
+  dismissBtn.style.color = 'var(--brown)';
+  dismissBtn.style.fontWeight = '700';
 }
 function closeComingSoon(e) {
   if (e && e.target !== document.getElementById('csOverlay')) return;
