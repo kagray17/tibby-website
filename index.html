@@ -127,6 +127,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--red
 
 /* DOWNLOAD FILTER BUTTONS */
 .download-filters { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:2rem; }
+.series-filters { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin:0 0 2rem; }
 .filter-btn { background:var(--yellow); color:var(--brown); font-family:'Bubblegum Sans',cursive; font-size:1.05rem; padding:0.7rem 1.8rem; border-radius:999px; border:2px solid var(--brown); box-shadow:0 3px 0 var(--brown); cursor:pointer; transition:transform 0.15s,box-shadow 0.15s; }
 .filter-btn:hover { transform:translateY(2px); box-shadow:0 1px 0 var(--brown); }
 .filter-btn.active { background:var(--red); color:white; border-color:var(--red-dark); box-shadow:0 3px 0 var(--red-dark); transform:translateY(2px); }
@@ -284,28 +285,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <div style="background:linear-gradient(135deg,#FFF3B0,#FFF8F0);padding:3rem 2rem 2rem;">
-    <div style="max-width:1100px;margin:0 auto;">
-      <h2 class="section-title">🆕 New Release!</h2>
-      <p class="section-sub">Hot off the press — celebrate the 4th with Tibby!</p>
-      <div style="max-width:480px;margin:0 auto;">
-        <a href="https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/ref=tmm_pap_swatch_0" target="_blank" class="book-card">
-          <div class="book-cover" style="aspect-ratio:1838/2775;"><img src="Images/4th of July.jpg" alt="Tibby and Friends Celebrate the 4th of July"></div>
-          <div class="book-info">
-            <div class="book-title-card">Tibby and Friends Celebrate the 4th of July</div>
-            <p class="book-desc">While the loud booms and bright lights are a lot for Tibby, he comes prepared with his headphones and sunglasses to stay comfortable and still enjoy the fun. Join Tibby and Friends as they enjoy a backyard barbecue, games, sweet summer treats, and dazzling fireworks on the 4th of July.</p>
-            <a href="https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/ref=tmm_pap_swatch_0" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <div class="featured-section" id="our-books">
     <h2 class="section-title">📖 Our Books</h2>
     <p class="section-sub">Click any book to find it on Amazon!</p>
-    <div class="books-grid">
-<a href="https://www.amazon.com/Tibby-Friends-Pizza-Parlor-Patience/dp/B0GK2M1YBZ/" target="_blank" class="book-card">
+    <div class="series-filters">
+      <button class="filter-btn active" onclick="filterBooks('adventure', this, 'homeBooksGrid')">🏕️ Adventure Series</button>
+      <button class="filter-btn" onclick="filterBooks('holiday', this, 'homeBooksGrid')">🎉 Holiday Series</button>
+    </div>
+    <div class="books-grid" id="homeBooksGrid">
+<a href="https://www.amazon.com/Tibby-Friends-Pizza-Parlor-Patience/dp/B0GK2M1YBZ/" target="_blank" class="book-card" data-series="adventure">
         <div class="book-cover book-cover-1"><img src="Images/Pizza Parlor.jpg" alt="Tibby and Friends at the Pizza Parlor"></div>
         <div class="book-info">
           <div class="book-title-card">Tibby and Friends at the Pizza Parlor</div>
@@ -313,7 +301,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.amazon.com/Tibby-Friends-Pizza-Parlor-Patience/dp/B0GK2M1YBZ/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
         </div>
       </a>
-      <a href="https://www.amazon.com/Tibby-Friends-Go-Baseball-Game/dp/B0GKY14SLS/" target="_blank" class="book-card">
+      <a href="https://www.amazon.com/Tibby-Friends-Go-Baseball-Game/dp/B0GKY14SLS/" target="_blank" class="book-card" data-series="adventure">
         <div class="book-cover book-cover-2"><img src="Images/Baseball Game.jpg" alt="Tibby and Friends Go to a Baseball Game"></div>
         <div class="book-info">
           <div class="book-title-card">Tibby and Friends Go to a Baseball Game</div>
@@ -321,7 +309,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.amazon.com/Tibby-Friends-Go-Baseball-Game/dp/B0GKY14SLS/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
         </div>
       </a>
-      <a href="https://www.amazon.com/Tibby-Friends-Make-Lemonade-Stand/dp/B0GKY19KMX/" target="_blank" class="book-card">
+      <a href="https://www.amazon.com/Tibby-Friends-Make-Lemonade-Stand/dp/B0GKY19KMX/" target="_blank" class="book-card" data-series="adventure">
         <div class="book-cover book-cover-3"><img src="Images/Lemonade Stand.jpg" alt="Tibby and Friends Make a Lemonade Stand"></div>
         <div class="book-info">
           <div class="book-title-card">Tibby and Friends Make a Lemonade Stand</div>
@@ -329,7 +317,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.amazon.com/Tibby-Friends-Make-Lemonade-Stand/dp/B0GKY19KMX/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
         </div>
       </a>
-      <a href="https://www.amazon.com/Tibby-Friends-Lunch-Charlie-Communication/dp/B0GKYFW37H/" target="_blank" class="book-card">
+      <a href="https://www.amazon.com/Tibby-Friends-Lunch-Charlie-Communication/dp/B0GKYFW37H/" target="_blank" class="book-card" data-series="adventure">
         <div class="book-cover book-cover-4"><img src="Images/Charlie .jpg" alt="Tibby and Friends Go to Lunch with Charlie"></div>
         <div class="book-info">
           <div class="book-title-card">Tibby and Friends Go to Lunch with Charlie</div>
@@ -337,12 +325,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.amazon.com/Tibby-Friends-Lunch-Charlie-Communication/dp/B0GKYFW37H/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
         </div>
       </a>
-      <a href="https://www.amazon.com/Tibby-Friends-Go-Hiking-Adventure/dp/B0HD7SV5GD/" target="_blank" class="book-card">
+      <a href="https://www.amazon.com/Tibby-Friends-Go-Hiking-Adventure/dp/B0HD7SV5GD/" target="_blank" class="book-card" data-series="adventure">
         <div class="book-cover book-cover-5"><img src="Images/Hiking.png" alt="Tibby and Friends Go Hiking"></div>
         <div class="book-info">
           <div class="book-title-card">Tibby and Friends Go Hiking</div>
           <p class="book-desc">Tibby feels a little nervous about trying something new when he and the pups take their friend Penelope on a hiking and camping trip. Together they explore scenic trails, paddle across the water in a canoe, and camp under the stars, discovering that every adventure is easier with good friends by your side.</p>
           <a href="https://www.amazon.com/Tibby-Friends-Go-Hiking-Adventure/dp/B0HD7SV5GD/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
+        </div>
+      </a>
+      <a href="https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/ref=tmm_pap_swatch_0" target="_blank" class="book-card" data-series="holiday" style="display:none;">
+        <div class="book-cover" style="aspect-ratio:1838/2775;"><img src="Images/4th of July.jpg" alt="Tibby and Friends Celebrate the 4th of July"></div>
+        <div class="book-info">
+          <div class="book-title-card">Tibby and Friends Celebrate the 4th of July</div>
+          <p class="book-desc">While the loud booms and bright lights are a lot for Tibby, he comes prepared with his headphones and sunglasses to stay comfortable and still enjoy the fun. Join Tibby and Friends as they enjoy a backyard barbecue, games, sweet summer treats, and dazzling fireworks on the 4th of July.</p>
+          <a href="https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/ref=tmm_pap_swatch_0" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
         </div>
       </a>
     </div>
@@ -412,19 +408,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>All Tibby &amp; Friends titles — available on Amazon!</p>
   </div>
   <div class="page-content">
-    <div class="books-grid">
-<a href="https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/ref=tmm_pap_swatch_0" target="_blank" class="book-card">
-        <div class="book-cover" style="aspect-ratio:1838/2775;"><img src="Images/4th of July.jpg" alt="Tibby and Friends Celebrate the 4th of July"></div>
-        <div class="book-info">
-          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.2rem;">
-            <span style="background:var(--red);color:white;font-family:'Bubblegum Sans',cursive;font-size:0.75rem;padding:0.2rem 0.7rem;border-radius:999px;">NEW</span>
-            <div class="book-title-card">Tibby and Friends Celebrate the 4th of July</div>
-          </div>
-          <p class="book-desc">While the loud booms and bright lights are a lot for Tibby, he comes prepared with his headphones and sunglasses to stay comfortable and still enjoy the fun. Join Tibby and Friends as they enjoy a backyard barbecue, games, sweet summer treats, and dazzling fireworks on the 4th of July.</p>
-          <a href="https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/ref=tmm_pap_swatch_0" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
-        </div>
-      </a>
-<a href="https://www.amazon.com/Tibby-Friends-Pizza-Parlor-Patience/dp/B0GK2M1YBZ/" target="_blank" class="book-card">
+    <div class="series-filters">
+      <button class="filter-btn active" onclick="filterBooks('adventure', this, 'allBooksGrid')">🏕️ Adventure Series</button>
+      <button class="filter-btn" onclick="filterBooks('holiday', this, 'allBooksGrid')">🎉 Holiday Series</button>
+    </div>
+    <div class="books-grid" id="allBooksGrid">
+<a href="https://www.amazon.com/Tibby-Friends-Pizza-Parlor-Patience/dp/B0GK2M1YBZ/" target="_blank" class="book-card" data-series="adventure">
         <div class="book-cover book-cover-1"><img src="Images/Pizza Parlor.jpg" alt="Tibby and Friends at the Pizza Parlor"></div>
         <div class="book-info">
           <div class="book-title-card">Tibby and Friends at the Pizza Parlor</div>
@@ -432,7 +421,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.amazon.com/Tibby-Friends-Pizza-Parlor-Patience/dp/B0GK2M1YBZ/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
         </div>
       </a>
-      <a href="https://www.amazon.com/Tibby-Friends-Go-Baseball-Game/dp/B0GKY14SLS/" target="_blank" class="book-card">
+      <a href="https://www.amazon.com/Tibby-Friends-Go-Baseball-Game/dp/B0GKY14SLS/" target="_blank" class="book-card" data-series="adventure">
         <div class="book-cover book-cover-2"><img src="Images/Baseball Game.jpg" alt="Tibby and Friends Go to a Baseball Game"></div>
         <div class="book-info">
           <div class="book-title-card">Tibby and Friends Go to a Baseball Game</div>
@@ -440,7 +429,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.amazon.com/Tibby-Friends-Go-Baseball-Game/dp/B0GKY14SLS/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
         </div>
       </a>
-      <a href="https://www.amazon.com/Tibby-Friends-Make-Lemonade-Stand/dp/B0GKY19KMX/" target="_blank" class="book-card">
+      <a href="https://www.amazon.com/Tibby-Friends-Make-Lemonade-Stand/dp/B0GKY19KMX/" target="_blank" class="book-card" data-series="adventure">
         <div class="book-cover book-cover-3"><img src="Images/Lemonade Stand.jpg" alt="Tibby and Friends Make a Lemonade Stand"></div>
         <div class="book-info">
           <div class="book-title-card">Tibby and Friends Make a Lemonade Stand</div>
@@ -448,7 +437,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.amazon.com/Tibby-Friends-Make-Lemonade-Stand/dp/B0GKY19KMX/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
         </div>
       </a>
-      <a href="https://www.amazon.com/Tibby-Friends-Lunch-Charlie-Communication/dp/B0GKYFW37H/" target="_blank" class="book-card">
+      <a href="https://www.amazon.com/Tibby-Friends-Lunch-Charlie-Communication/dp/B0GKYFW37H/" target="_blank" class="book-card" data-series="adventure">
         <div class="book-cover book-cover-4"><img src="Images/Charlie .jpg" alt="Tibby and Friends Go to Lunch with Charlie"></div>
         <div class="book-info">
           <div class="book-title-card">Tibby and Friends Go to Lunch with Charlie</div>
@@ -456,12 +445,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.amazon.com/Tibby-Friends-Lunch-Charlie-Communication/dp/B0GKYFW37H/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
         </div>
       </a>
-      <a href="https://www.amazon.com/Tibby-Friends-Go-Hiking-Adventure/dp/B0HD7SV5GD/" target="_blank" class="book-card">
+      <a href="https://www.amazon.com/Tibby-Friends-Go-Hiking-Adventure/dp/B0HD7SV5GD/" target="_blank" class="book-card" data-series="adventure">
         <div class="book-cover book-cover-5"><img src="Images/Hiking.png" alt="Tibby and Friends Go Hiking"></div>
         <div class="book-info">
           <div class="book-title-card">Tibby and Friends Go Hiking</div>
           <p class="book-desc">Tibby feels a little nervous about trying something new when he and the pups take their friend Penelope on a hiking and camping trip. Together they explore scenic trails, paddle across the water in a canoe, and camp under the stars, discovering that every adventure is easier with good friends by your side.</p>
           <a href="https://www.amazon.com/Tibby-Friends-Go-Hiking-Adventure/dp/B0HD7SV5GD/" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
+        </div>
+      </a>
+      <a href="https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/ref=tmm_pap_swatch_0" target="_blank" class="book-card" data-series="holiday" style="display:none;">
+        <div class="book-cover" style="aspect-ratio:1838/2775;"><img src="Images/4th of July.jpg" alt="Tibby and Friends Celebrate the 4th of July"></div>
+        <div class="book-info">
+          <div class="book-title-card">Tibby and Friends Celebrate the 4th of July</div>
+          <p class="book-desc">While the loud booms and bright lights are a lot for Tibby, he comes prepared with his headphones and sunglasses to stay comfortable and still enjoy the fun. Join Tibby and Friends as they enjoy a backyard barbecue, games, sweet summer treats, and dazzling fireworks on the 4th of July.</p>
+          <a href="https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/ref=tmm_pap_swatch_0" target="_blank" class="amazon-btn">🛒 Buy on Amazon</a>
         </div>
       </a>
     </div>
@@ -827,6 +824,13 @@ function toggleMenu() {
 }
 function closeMenu() {
   document.getElementById('navLinks').classList.remove('open');
+}
+function filterBooks(series, btn, gridId) {
+  btn.parentElement.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('#' + gridId + ' .book-card').forEach(function(card){
+    card.style.display = card.dataset.series === series ? '' : 'none';
+  });
 }
 function filterDownloads(category, btn) {
   document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
