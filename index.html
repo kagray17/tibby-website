@@ -555,6 +555,55 @@ a:focus-visible,button:focus-visible,input:focus-visible{ outline:3px solid #1e6
   footer{ padding-top:3.5rem!important; }
   .sticky-buy{ left:auto!important; right:.9rem!important; bottom:.9rem!important; font-size:.9rem!important; padding:.6rem 1.05rem!important; box-shadow:0 3px 0 #c98a0c,0 8px 18px -6px rgba(0,0,0,.4)!important; }
 }
+
+/* ===== mobile calm layout v3 (<=768px) ===== */
+@media(max-width:768px){
+  html,body{ overflow-x:hidden; }
+  body{ font-size:16px!important; }
+  .hero{ min-height:0!important; padding:2rem 1.25rem 0!important; }
+  .hero h1{ font-size:2.3rem!important; }
+  .hero-sub{ font-size:1.05rem!important; line-height:1.5!important; }
+  .hero-ctas{ flex-direction:column!important; align-items:stretch!important; max-width:320px; margin:0 auto!important; }
+  .hero-ctas .btn{ width:100%!important; justify-content:center!important; font-size:1.05rem!important; padding:.9rem 1.2rem!important; }
+  .hero-art{ max-width:240px!important; margin:1.5rem auto 1.25rem!important; }
+  /* new release + christmas: stacked, centered */
+  .release,.xmas{ margin-top:1.5rem!important; padding:0 1.25rem!important; }
+  .release-inner,.xmas-inner{ grid-template-columns:1fr!important; text-align:center!important; padding:1.5rem 1.25rem!important; gap:1rem!important; border-radius:22px!important; }
+  .release-cover,.xmas-cover{ max-width:150px!important; margin:0 auto!important; grid-column:1!important; }
+  .xmas-copy{ grid-column:1!important; }
+  .release h2,.xmas h2{ font-size:1.35rem!important; }
+  .eyebrow{ font-size:.78rem!important; }
+  .release .btn-lg,.xmas .btn-lg{ font-size:1rem!important; padding:.8rem 1.4rem!important; }
+  .featured-section{ padding:2.75rem 1.25rem 2rem!important; }
+  .section-title{ font-size:1.8rem!important; line-height:1.2!important; }
+  .series-head p{ font-size:1rem!important; }
+  /* books: one clean row per book (cover left, text right) */
+  .books-grid{ grid-template-columns:1fr!important; gap:1rem!important; }
+  .book-card{ flex-direction:row!important; align-items:stretch!important; }
+  .book-cover{ flex:0 0 112px!important; aspect-ratio:auto!important; padding:.75rem!important; display:flex!important; align-items:center!important; }
+  .book-cover::after{ display:none!important; }
+  .book-cover img{ margin:0!important; width:100%!important; height:auto!important; }
+  .book-info{ padding:.9rem 1rem 1rem .25rem!important; justify-content:center!important; }
+  .book-title-card{ font-size:1.05rem!important; line-height:1.25!important; }
+  .book-hook{ font-size:.95rem!important; }
+  .amazon-btn{ font-size:.95rem!important; padding:.7rem .8rem!important; margin-top:auto; }
+  /* why love: single column */
+  .why-grid{ grid-template-columns:1fr!important; gap:.9rem!important; }
+  .why-card{ padding:1.25rem 1.2rem!important; }
+  .why-card h3{ font-size:1.15rem!important; }
+  .why-card p{ font-size:1rem!important; }
+  /* merch */
+  .home-merch{ padding:2.75rem 1.25rem!important; }
+  .merch-card h3{ font-size:.95rem!important; }
+  .merch-card span,.merch-price{ font-size:.92rem!important; }
+  .merch-cta-row .btn{ font-size:1rem!important; padding:.8rem 1.3rem!important; }
+  .shop-cat-nav a{ font-size:.9rem!important; padding:.5rem .9rem!important; }
+  .leadmag,.spotlight{ padding:0 1.25rem!important; }
+  /* floating pill clutters the screen; hero + books already have Amazon buttons */
+  .sticky-buy{ display:none!important; }
+  /* popup: fit small screens */
+  .cs-modal{ max-height:88svh; overflow-y:auto; }
+}
 </style>
 </head>
 <body>
@@ -1302,6 +1351,7 @@ function lsGet(k){ try { return localStorage.getItem(k); } catch(e) { return nul
 function lsSet(k,v){ try { localStorage.setItem(k,v); } catch(e) {} }
 window.addEventListener('load', function() {
   if (lsGet('tf_cs_seen_christmas') || lsGet('tf_subscribed')) return;
+  if (window.matchMedia('(max-width:768px)').matches) return; /* no auto popup on phones; Christmas panel is on the page */
   setTimeout(function() {
     lsSet('tf_cs_seen_christmas', '1');
     openComingSoon();
