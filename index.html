@@ -181,8 +181,9 @@ footer { background:var(--brown); color:rgba(255,255,255,0.85); text-align:cente
 .cs-dismiss:hover { transform:translateY(2px); box-shadow:0 1px 0 var(--brown); }
 
 /* TOAST */
-.toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(100px); background:var(--green); color:white; font-family:'Fredoka',system-ui,sans-serif; font-size:1.1rem; padding:1rem 2rem; border-radius:999px; z-index:9999; transition:transform 0.4s; }
-.toast.show { transform:translateX(-50%) translateY(0); }
+.toast { position:fixed; bottom:2rem; left:50%; width:max-content; max-width:calc(100vw - 2rem); text-align:center; visibility:hidden; opacity:0; pointer-events:none; transform:translateX(-50%) translateY(calc(100% + 3rem)); background:var(--green); color:white; font-family:'Fredoka',system-ui,sans-serif; font-size:1.1rem; padding:1rem 2rem; border-radius:999px; z-index:9999; transition:transform 0.4s, opacity 0.4s, visibility 0s 0.4s; }
+.toast.show { visibility:visible; opacity:1; pointer-events:auto; transform:translateX(-50%) translateY(0); transition:transform 0.4s, opacity 0.4s, visibility 0s; }
+@media (max-width:768px){ .toast.show { bottom:5rem; } }
 
 @media(max-width:640px){
   .nav-links { display:none; flex-direction:column; position:absolute; top:68px; left:0; right:0; background:var(--red-dark); padding:1rem; }
@@ -1208,7 +1209,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <button class="sticky-buy" id="stickyBuy" onclick="scrollToBooks()" aria-label="Shop the books on Amazon">🛒 Shop on Amazon</button>
-<div class="toast" id="toast">✅ Message sent! We'll be in touch soon 🐾</div>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-hidden="true">✅ Message sent! We'll be in touch soon 🐾</div>
 
 <script>
 function openComingSoon() {
@@ -1321,8 +1322,8 @@ document.getElementById('contactForm').addEventListener('submit', async function
     if (res.ok) {
       e.target.reset();
       var t = document.getElementById('toast');
-      t.classList.add('show');
-      setTimeout(function(){ t.classList.remove('show'); }, 3500);
+      t.classList.add('show'); t.setAttribute('aria-hidden','false');
+      setTimeout(function(){ t.classList.remove('show'); t.setAttribute('aria-hidden','true'); }, 3500);
     } else {
       alert('Something went wrong. Please try again!');
     }
