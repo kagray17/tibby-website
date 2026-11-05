@@ -275,7 +275,7 @@ nav { background:rgba(232,39,42,0.97); backdrop-filter:blur(6px); }
 .home-merch { background:white; padding:4rem 2rem; }
 .home-merch .inner { max-width:1100px; margin:0 auto; }
 
-.testimonials { display:none; }
+
 
 .about-hero { align-items:center; }
 .about-photo { width:220px; flex-shrink:0; text-align:center; }
@@ -459,6 +459,74 @@ a:focus-visible,button:focus-visible,input:focus-visible{ outline:3px solid #1e6
   .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal>div{padding-right:0!important;padding-bottom:10px;}
   .ml-form-formContent.horozintalForm .ml-button-horizontal{display:none!important;}
   .ml-mobileButton-horizontal{display:inline-block!important;margin-bottom:20px;width:100%;}
+}
+
+/* why love */
+.why-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.2rem; }
+.why-card{ background:#fff; border-radius:24px; box-shadow:var(--shadow); padding:1.6rem 1.4rem; text-align:center; }
+.why-ic{ display:inline-grid; place-items:center; width:56px; height:56px; border-radius:50%; background:#FFF1C9; font-size:1.6rem; margin-bottom:.7rem; }
+.why-card h3{ font-family:'Fredoka',sans-serif; color:var(--red); font-size:1.25rem; margin-bottom:.4rem; }
+.why-card p{ color:#6a5548; line-height:1.55; font-size:.98rem; }
+.whylove{ text-align:center; }
+/* ===== mobile simplification (<=768px) ===== */
+@media(max-width:768px){
+  .decor,.trust-chips,.hero-badge,.greatfor,.snow,.xmas-inner::before,.release-inner::after,.ticks{ display:none!important; }
+  *{ animation:none!important; }
+  .reveal{ opacity:1!important; transform:none!important; transition:none!important; }
+  nav{ padding:.6rem 1rem!important; }
+  .logo{ font-size:1.25rem!important; }
+  .hero{ padding:1.6rem 1.2rem 0!important; }
+  .hero h1{ font-size:2.4rem!important; text-shadow:0 3px 0 rgba(120,15,10,.35)!important; margin-bottom:.5rem; }
+  .hero-sub{ font-size:1rem!important; margin-bottom:1rem!important; }
+  .hero-ctas{ gap:.6rem!important; }
+  .hero-ctas .btn{ font-size:1rem!important; padding:.7rem 1.2rem!important; }
+  .hero-art{ max-width:300px!important; margin:1rem auto 1.5rem!important; }
+  .hero-art::before{ display:none!important; }
+  .hero .wave{ height:36px!important; }
+  .release,.xmas{ margin-top:1rem!important; padding:0 1rem!important; }
+  .release-inner,.xmas-inner{ grid-template-columns:96px 1fr!important; gap:1rem!important; padding:1rem!important; text-align:left!important; border-radius:18px!important; box-shadow:0 10px 24px -14px rgba(0,0,0,.45)!important; align-items:center!important; }
+  .release-cover,.xmas-cover{ max-width:none!important; margin:0!important; grid-row:1!important; grid-column:1!important; }
+  .xmas-copy{ grid-column:2!important; }
+  .release-cover img,.xmas-cover img{ transform:none!important; border-radius:4px 8px 8px 4px!important; box-shadow:0 8px 16px -6px rgba(0,0,0,.5)!important; }
+  .release .lead,.xmas p{ display:none!important; }
+  .release h2,.xmas h2{ font-size:1.15rem!important; margin-bottom:.6rem!important; line-height:1.2!important; }
+  .eyebrow{ font-size:.72rem!important; padding:.25rem .6rem!important; margin-bottom:.4rem!important; }
+  .release .btn-lg,.xmas .btn-lg{ font-size:.95rem!important; padding:.55rem 1rem!important; box-shadow:0 3px 0 #c98a0c!important; }
+  .featured-section{ padding:2.2rem 1rem 1.5rem!important; }
+  .section-title{ font-size:1.7rem!important; }
+  .section-sub{ font-size:1rem!important; margin-bottom:1.4rem!important; }
+  .series-head{ margin-bottom:.8rem!important; }
+  .series-head h3{ font-size:1.35rem!important; }
+  .series-head p{ font-size:.9rem; }
+  .series-group{ margin-bottom:2rem!important; }
+  .books-grid{ grid-template-columns:1fr 1fr!important; gap:.8rem!important; }
+  .book-card{ border-radius:16px!important; display:flex!important; flex-direction:column!important; }
+  .book-card:hover{ transform:none!important; }
+  .book-cover{ aspect-ratio:1/1!important; padding:.8rem .8rem 0!important; }
+  .book-cover::after{ height:8px!important; }
+  .book-cover img{ margin-bottom:8px!important; }
+  .book-info{ padding:.7rem .7rem .8rem!important; display:flex!important; flex-direction:column!important; flex:1!important; }
+  .series-tag,.book-desc{ display:none!important; }
+  .book-title-card{ font-size:.95rem!important; margin-bottom:.3rem!important; }
+  .book-hook{ font-size:.8rem!important; line-height:1.35!important; margin-bottom:.6rem!important; }
+  .amazon-btn{ font-size:.85rem!important; padding:.5rem .4rem!important; box-shadow:0 3px 0 #c98a0c!important; }
+  .new-badge{ font-size:.7rem!important; }
+  .why-grid{ grid-template-columns:1fr 1fr!important; gap:.7rem!important; }
+  .why-card{ padding:1rem .8rem!important; border-radius:16px!important; }
+  .why-card:last-child{ grid-column:1/-1; }
+  .why-ic{ width:40px!important; height:40px!important; font-size:1.2rem!important; margin-bottom:.4rem!important; }
+  .why-card h3{ font-size:1rem!important; }
+  .why-card p{ font-size:.85rem!important; }
+  .leadmag-inner{ padding:1.4rem 1.1rem!important; border-radius:20px!important; }
+  .leadmag-imgs{ display:none!important; }
+  .merch-grid{ display:grid!important; grid-template-columns:repeat(3,1fr)!important; gap:.6rem!important; }
+  .merch-card{ height:auto!important; }
+  .merch-card img{ width:100%!important; height:auto!important; aspect-ratio:1/1!important; object-fit:cover!important; }
+  .merch-card div{ padding:.5rem!important; }
+  .merch-card h3{ font-size:.78rem!important; line-height:1.25!important; }
+  .merch-card span{ font-size:.75rem!important; }
+  footer{ padding-top:3.5rem!important; }
+  .sticky-buy{ left:auto!important; right:.9rem!important; bottom:.9rem!important; font-size:.9rem!important; padding:.6rem 1.05rem!important; box-shadow:0 3px 0 #c98a0c,0 8px 18px -6px rgba(0,0,0,.4)!important; }
 }
 </style>
 </head>
@@ -649,16 +717,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </div>
 
-  <!-- TESTIMONIALS: hidden until real parent/teacher/librarian quotes are supplied.
-       To enable: remove class "testimonials" display:none rule (or delete style) and replace placeholders.
-  <section class="testimonials featured-section">
-    <h2 class="section-title">💬 What Families Are Saying</h2>
-    <div class="books-grid">
-      <blockquote class="about-card">"REAL QUOTE HERE" <cite>— Name, Parent</cite></blockquote>
-      <blockquote class="about-card">"REAL QUOTE HERE" <cite>— Name, Teacher</cite></blockquote>
+  <section class="whylove featured-section reveal" aria-label="Why parents and teachers love Tibby">
+    <span class="eyebrow center">For Grown-Ups</span>
+    <h2 class="section-title">Why Parents &amp; Teachers Love Tibby</h2>
+    <p class="section-sub">Every story pairs a fun adventure with a lesson kids can carry into real life.</p>
+    <div class="why-grid">
+      <div class="why-card"><span class="why-ic">⏳</span><h3>Patience</h3><p>At the Pizza Parlor, the pups learn that good things are worth waiting for.</p></div>
+      <div class="why-card"><span class="why-ic">🤝</span><h3>Inclusion</h3><p>Lunch with Charlie shows kids that friends can communicate in different ways, including without words.</p></div>
+      <div class="why-card"><span class="why-ic">🎧</span><h3>Sensory-friendly</h3><p>On the 4th of July, Tibby brings headphones and sunglasses so the booms and lights don't stop the fun.</p></div>
+      <div class="why-card"><span class="why-ic">🍋</span><h3>Teamwork &amp; kindness</h3><p>From a lemonade stand to a baseball game, the pups work together and cheer each other on.</p></div>
+      <div class="why-card"><span class="why-ic">🌲</span><h3>Trying new things</h3><p>Nervous about hiking, Tibby discovers every adventure is easier with friends by your side.</p></div>
     </div>
   </section>
-  -->
 
   <section class="leadmag reveal" id="activity-pack">
     <div class="leadmag-inner">
