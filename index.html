@@ -276,6 +276,26 @@ nav { background:rgba(232,39,42,0.97); backdrop-filter:blur(6px); }
 .home-merch { background:white; padding:4rem 2rem; }
 .home-merch .inner { max-width:1100px; margin:0 auto; }
 
+/* merch shop update */
+.merch-price{ display:inline-block; margin-top:0.45rem; color:var(--red); font-weight:800; font-size:.95rem; }
+.merch-card h3{ font-family:'Fredoka',system-ui,sans-serif; font-size:1.05rem; }
+.merch-scroll{ display:flex; gap:1rem; overflow-x:auto; padding:0.4rem 0.2rem 1.2rem; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; }
+.merch-scroll .merch-card{ flex:0 0 220px; scroll-snap-align:start; max-width:220px; }
+.merch-scroll::-webkit-scrollbar{ height:8px; }
+.merch-scroll::-webkit-scrollbar-thumb{ background:#e0d0c4; border-radius:999px; }
+.merch-cta-row{ display:flex; flex-wrap:wrap; gap:.8rem; justify-content:center; margin-top:1.2rem; }
+.btn-ghost-dark{ display:inline-block; background:transparent; color:var(--ink); border:2px solid #e0d0c4; font-family:'Fredoka',system-ui,sans-serif; font-weight:600; padding:0.7rem 1.4rem; border-radius:999px; text-decoration:none; }
+.btn-ghost-dark:hover{ border-color:var(--red); color:var(--red); }
+.shop-cat-nav{ display:flex; flex-wrap:wrap; gap:.5rem; margin:1.2rem 0 0.4rem; }
+.shop-cat-nav a{ text-decoration:none; font-family:'Fredoka',system-ui,sans-serif; font-size:.9rem; font-weight:600; color:var(--red); background:#ffe9e2; padding:.4rem .9rem; border-radius:999px; }
+.shop-cat-nav a:hover{ background:var(--red); color:#fff; }
+.shop-cat-title{ scroll-margin-top:90px; }
+.merch-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1.2rem; justify-content:stretch; }
+@media(min-width:900px){
+  .merch-scroll .merch-card{ flex-basis:240px; max-width:240px; }
+}
+
+
 
 
 .about-hero { align-items:center; }
@@ -520,12 +540,18 @@ a:focus-visible,button:focus-visible,input:focus-visible{ outline:3px solid #1e6
   .why-card p{ font-size:.85rem!important; }
   .leadmag-inner{ padding:1.4rem 1.1rem!important; border-radius:20px!important; }
   .leadmag-imgs{ display:none!important; }
-  .merch-grid{ display:grid!important; grid-template-columns:repeat(3,1fr)!important; gap:.6rem!important; }
+  .merch-grid{ display:grid!important; grid-template-columns:repeat(2,1fr)!important; gap:.75rem!important; }
   .merch-card{ height:auto!important; }
-  .merch-card img{ width:100%!important; height:auto!important; aspect-ratio:1/1!important; object-fit:cover!important; }
-  .merch-card div{ padding:.5rem!important; }
-  .merch-card h3{ font-size:.78rem!important; line-height:1.25!important; }
-  .merch-card span{ font-size:.75rem!important; }
+  .merch-card img{ width:100%!important; height:auto!important; aspect-ratio:1/1!important; object-fit:contain!important; background:#fff!important; }
+  .merch-card div{ padding:.55rem .6rem .7rem!important; }
+  .merch-card h3{ font-size:.82rem!important; line-height:1.25!important; }
+  .merch-card span,.merch-price{ font-size:.78rem!important; margin-top:.3rem!important; }
+  .merch-scroll{ gap:.75rem!important; padding-bottom:1rem!important; }
+  .merch-scroll .merch-card{ flex-basis:62vw!important; max-width:220px!important; }
+  .shop-cat-nav{ gap:.4rem!important; }
+  .shop-cat-nav a{ font-size:.8rem!important; padding:.35rem .7rem!important; }
+  .merch-cta-row{ gap:.6rem!important; }
+  .merch-cta-row .btn{ font-size:.9rem!important; padding:.65rem 1.1rem!important; }
   footer{ padding-top:3.5rem!important; }
   .sticky-buy{ left:auto!important; right:.9rem!important; bottom:.9rem!important; font-size:.9rem!important; padding:.6rem 1.05rem!important; box-shadow:0 3px 0 #c98a0c,0 8px 18px -6px rgba(0,0,0,.4)!important; }
 }
@@ -574,6 +600,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <ul class="nav-links" id="navLinks">
     <li><button onclick="showPage('home')">Home</button></li>
     <li><button onclick="showPage('books')">Books</button></li>
+    <li><button onclick="showPage('shop')">Shop</button></li>
     <li><a href="https://tibby-and-friends.printify.me" target="_blank" rel="noopener" class="nav-external">Merch Store</a></li>
     <li><button onclick="showPage('about')">About Us</button></li>
     <li><button onclick="showPage('contact')">Contact</button></li>
@@ -748,11 +775,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="home-merch reveal">
     <div class="inner">
       <h2 class="section-title">🛍️ Tibby Merch</h2>
-      <p class="section-sub">Printed fresh just for you on demand</p>
-      <div class="merch-grid"><a class="merch-card" href="https://tibby-and-friends.printify.me/product/27444597" target="_blank" rel="noopener"><img src="Images/merch/mug.webp" alt="Tibby and Friends Coffee Mug" loading="lazy" width="700" height="700"><div><h3>Tibby and Friends Coffee Mug</h3><span>Shop now →</span></div></a>
-<a class="merch-card" href="https://tibby-and-friends.printify.me/product/27444578" target="_blank" rel="noopener"><img src="Images/merch/blanket.webp" alt="Velveteen Movie Night Blanket" loading="lazy" width="700" height="700"><div><h3>Velveteen Movie Night Blanket</h3><span>Shop now →</span></div></a>
-<a class="merch-card" href="https://tibby-and-friends.printify.me/product/27243053" target="_blank" rel="noopener"><img src="Images/merch/pug-tee.webp" alt="Pug Movie Night T-Shirt" loading="lazy" width="700" height="700"><div><h3>Pug Movie Night T-Shirt</h3><span>Shop now →</span></div></a></div>
-      <div style="text-align:center;margin-top:2rem;"><a href="https://tibby-and-friends.printify.me" target="_blank" rel="noopener" class="btn btn-primary">Visit the Full Shop →</a></div>
+      <p class="section-sub">Tees, mugs, stickers, posters &amp; more — made to order</p>
+      <div class="merch-scroll" role="list">
+        <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983728" target="_blank" rel="noopener"><img src="Images/opt/merch-33983728.webp" alt="Tibby and Friends Trio kids tee" loading="lazy" width="600" height="600"><div><h3>Trio Kids Tee</h3><span class="merch-price">$21.99</span></div></a>
+        <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983465" target="_blank" rel="noopener"><img src="Images/opt/merch-33983465.webp" alt="Ballpark Pups kids tee" loading="lazy" width="600" height="600"><div><h3>Ballpark Pups Kids Tee</h3><span class="merch-price">$21.99</span></div></a>
+        <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983467" target="_blank" rel="noopener"><img src="Images/opt/merch-33983467.webp" alt="Celebrate Daisy's Birthday ceramic mug" loading="lazy" width="600" height="600"><div><h3>Daisy's Birthday Mug</h3><span class="merch-price">From $14.99</span></div></a>
+        <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983738" target="_blank" rel="noopener"><img src="Images/opt/merch-33983738.webp" alt="Tibby Lemonade kiss-cut sticker" loading="lazy" width="600" height="600"><div><h3>Tibby Lemonade Sticker</h3><span class="merch-price">From $3.99</span></div></a>
+        <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983462" target="_blank" rel="noopener"><img src="Images/opt/merch-33983462.webp" alt="Trick-or-Treating book cover poster" loading="lazy" width="600" height="600"><div><h3>Trick-or-Treating Poster</h3><span class="merch-price">From $19.99</span></div></a>
+        <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983470" target="_blank" rel="noopener"><img src="Images/opt/merch-33983470.webp" alt="Trick-or-Treating jigsaw puzzle with tin" loading="lazy" width="600" height="600"><div><h3>Trick-or-Treating Puzzle</h3><span class="merch-price">From $34.99</span></div></a>
+        <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983468" target="_blank" rel="noopener"><img src="Images/opt/merch-33983468.webp" alt="Rescue Stella library tote bag" loading="lazy" width="600" height="600"><div><h3>Rescue Stella Tote</h3><span class="merch-price">$24.99</span></div></a>
+        <a class="merch-card" href="https://tibby-and-friends.printify.me/product/27444578" target="_blank" rel="noopener"><img src="Images/opt/merch-27444578.webp" alt="Velveteen Movie Night blanket" loading="lazy" width="600" height="600"><div><h3>Movie Night Blanket</h3><span class="merch-price">$38.52</span></div></a>
+      </div>
+      <div class="merch-cta-row">
+        <a href="#page-shop" onclick="showPage('shop');return false;" class="btn btn-ghost-dark">Browse all merch</a>
+        <a href="https://tibby-and-friends.printify.me" target="_blank" rel="noopener" class="btn btn-primary">Shop all merch →</a>
+      </div>
     </div>
   </section>
 
@@ -901,26 +938,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="page" id="page-shop">
   <div class="page-header">
     <h1>🛍️ Tibby's Shop</h1>
-    <p>Adorable merch for your little Tibby fan!</p>
+    <p>Merch made to order for Tibby fans</p>
   </div>
   <div class="page-content">
     <div class="shop-intro">
       <div class="shop-intro-icon">🐾</div>
       <div>
         <h2 style="font-family:'Fredoka',system-ui,sans-serif;color:var(--red);font-size:1.4rem;">Tibby &amp; Friends Merch</h2>
-        <p style="color:#666;margin-top:0.3rem;">Bring Tibby home! Browse our collection of fun, high-quality products. Powered by <strong>Printify</strong> — printed fresh just for you!</p>
+        <p style="color:#666;margin-top:0.3rem;">Tees, mugs, stickers, posters, puzzles and more — printed fresh through Printify. Prices shown from the store.</p>
       </div>
     </div>
-    <h2 class="section-title" style="text-align:left;margin-top:2rem;">Featured Products</h2>
-    <div class="merch-grid"><a class="merch-card" href="https://tibby-and-friends.printify.me/product/27444597" target="_blank" rel="noopener"><img src="Images/merch/mug.webp" alt="Tibby and Friends Coffee Mug" loading="lazy" width="700" height="700"><div><h3>Tibby and Friends Coffee Mug</h3><span>Shop now →</span></div></a>
-<a class="merch-card" href="https://tibby-and-friends.printify.me/product/27444578" target="_blank" rel="noopener"><img src="Images/merch/blanket.webp" alt="Velveteen Movie Night Blanket" loading="lazy" width="700" height="700"><div><h3>Velveteen Movie Night Blanket</h3><span>Shop now →</span></div></a>
-<a class="merch-card" href="https://tibby-and-friends.printify.me/product/27243053" target="_blank" rel="noopener"><img src="Images/merch/pug-tee.webp" alt="Pug Movie Night T-Shirt" loading="lazy" width="700" height="700"><div><h3>Pug Movie Night T-Shirt</h3><span>Shop now →</span></div></a></div>
+    <div class="shop-cat-nav">
+      <a href="#shop-tees">Tees & Hoodies</a>
+      <a href="#shop-mugs">Mugs</a>
+      <a href="#shop-stickers">Stickers & Totes</a>
+      <a href="#shop-posters">Posters & Puzzles</a>
+      <a href="#shop-journal">Journal & Cozy</a>
+    </div>
+    <h2 class="section-title shop-cat-title" id="shop-tees" style="text-align:left;margin-top:2.2rem;">👕 Tees & Hoodies</h2>
+    <div class="merch-grid">
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983728" target="_blank" rel="noopener"><img src="Images/opt/merch-33983728.webp" alt="Tibby and Friends Trio kids tee" loading="lazy" width="600" height="600"><div><h3>Trio Kids Tee</h3><span class="merch-price">$21.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983465" target="_blank" rel="noopener"><img src="Images/opt/merch-33983465.webp" alt="Ballpark Pups kids tee" loading="lazy" width="600" height="600"><div><h3>Ballpark Pups Kids Tee</h3><span class="merch-price">$21.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983729" target="_blank" rel="noopener"><img src="Images/opt/merch-33983729.webp" alt="Tibby Headphones kids tee" loading="lazy" width="600" height="600"><div><h3>Tibby Headphones Kids Tee</h3><span class="merch-price">$21.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983730" target="_blank" rel="noopener"><img src="Images/opt/merch-33983730.webp" alt="Maximus Burger Time kids tee" loading="lazy" width="600" height="600"><div><h3>Maximus Burger Kids Tee</h3><span class="merch-price">$21.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983727" target="_blank" rel="noopener"><img src="Images/opt/merch-33983727.webp" alt="Tibby and Friends Trio unisex heavy cotton tee" loading="lazy" width="600" height="600"><div><h3>Trio Unisex Tee</h3><span class="merch-price">$24.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983732" target="_blank" rel="noopener"><img src="Images/opt/merch-33983732.webp" alt="Tibby and Friends Trio youth hoodie" loading="lazy" width="600" height="600"><div><h3>Trio Youth Hoodie</h3><span class="merch-price">$37.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983731" target="_blank" rel="noopener"><img src="Images/opt/merch-33983731.webp" alt="Tibby and Friends Trio baby bodysuit" loading="lazy" width="600" height="600"><div><h3>Trio Baby Bodysuit</h3><span class="merch-price">$19.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/27243053" target="_blank" rel="noopener"><img src="Images/opt/merch-27243053.webp" alt="Pug Movie Night t-shirt" loading="lazy" width="600" height="600"><div><h3>Pug Movie Night Tee</h3><span class="merch-price">From $20.99</span></div></a>
+    </div>
+    <h2 class="section-title shop-cat-title" id="shop-mugs" style="text-align:left;margin-top:2.2rem;">☕ Mugs</h2>
+    <div class="merch-grid">
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983736" target="_blank" rel="noopener"><img src="Images/opt/merch-33983736.webp" alt="Tibby and Friends Ballpark ceramic mug" loading="lazy" width="600" height="600"><div><h3>Ballpark Mug</h3><span class="merch-price">From $14.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983735" target="_blank" rel="noopener"><img src="Images/opt/merch-33983735.webp" alt="Kolbe Pretzel Party ceramic mug" loading="lazy" width="600" height="600"><div><h3>Kolbe Pretzel Mug</h3><span class="merch-price">From $14.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983467" target="_blank" rel="noopener"><img src="Images/opt/merch-33983467.webp" alt="Celebrate Daisy's Birthday ceramic mug" loading="lazy" width="600" height="600"><div><h3>Daisy's Birthday Mug</h3><span class="merch-price">From $14.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/27444597" target="_blank" rel="noopener"><img src="Images/opt/merch-27444597.webp" alt="Tibby and Friends coffee mug" loading="lazy" width="600" height="600"><div><h3>Coffee Mug</h3><span class="merch-price">From $11.99</span></div></a>
+    </div>
+    <h2 class="section-title shop-cat-title" id="shop-stickers" style="text-align:left;margin-top:2.2rem;">🏷️ Stickers & Totes</h2>
+    <div class="merch-grid">
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983741" target="_blank" rel="noopener"><img src="Images/opt/merch-33983741.webp" alt="Kolbe Hiking kiss-cut sticker" loading="lazy" width="600" height="600"><div><h3>Kolbe Hiking Sticker</h3><span class="merch-price">From $3.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983740" target="_blank" rel="noopener"><img src="Images/opt/merch-33983740.webp" alt="Maximus Burger kiss-cut sticker" loading="lazy" width="600" height="600"><div><h3>Maximus Burger Sticker</h3><span class="merch-price">From $3.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983739" target="_blank" rel="noopener"><img src="Images/opt/merch-33983739.webp" alt="Tibby Headphones kiss-cut sticker" loading="lazy" width="600" height="600"><div><h3>Tibby Headphones Sticker</h3><span class="merch-price">From $3.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983738" target="_blank" rel="noopener"><img src="Images/opt/merch-33983738.webp" alt="Tibby Lemonade kiss-cut sticker" loading="lazy" width="600" height="600"><div><h3>Tibby Lemonade Sticker</h3><span class="merch-price">From $3.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983733" target="_blank" rel="noopener"><img src="Images/opt/merch-33983733.webp" alt="Tibby and Friends Trio canvas tote bag" loading="lazy" width="600" height="600"><div><h3>Trio Canvas Tote</h3><span class="merch-price">$22.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983469" target="_blank" rel="noopener"><img src="Images/opt/merch-33983469.webp" alt="Pizza Parlor kiss-cut sticker" loading="lazy" width="600" height="600"><div><h3>Pizza Parlor Sticker</h3><span class="merch-price">From $3.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983468" target="_blank" rel="noopener"><img src="Images/opt/merch-33983468.webp" alt="Rescue Stella library tote bag" loading="lazy" width="600" height="600"><div><h3>Rescue Stella Tote</h3><span class="merch-price">$24.99</span></div></a>
+    </div>
+    <h2 class="section-title shop-cat-title" id="shop-posters" style="text-align:left;margin-top:2.2rem;">🖼️ Posters & Puzzles</h2>
+    <div class="merch-grid">
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983470" target="_blank" rel="noopener"><img src="Images/opt/merch-33983470.webp" alt="Trick-or-Treating jigsaw puzzle with tin" loading="lazy" width="600" height="600"><div><h3>Trick-or-Treating Puzzle</h3><span class="merch-price">From $34.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983464" target="_blank" rel="noopener"><img src="Images/opt/merch-33983464.webp" alt="Baseball Game book cover poster" loading="lazy" width="600" height="600"><div><h3>Baseball Game Poster</h3><span class="merch-price">From $19.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983463" target="_blank" rel="noopener"><img src="Images/opt/merch-33983463.webp" alt="Pizza Parlor book cover poster" loading="lazy" width="600" height="600"><div><h3>Pizza Parlor Poster</h3><span class="merch-price">From $19.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983462" target="_blank" rel="noopener"><img src="Images/opt/merch-33983462.webp" alt="Trick-or-Treating book cover poster" loading="lazy" width="600" height="600"><div><h3>Trick-or-Treating Poster</h3><span class="merch-price">From $19.99</span></div></a>
+    </div>
+    <h2 class="section-title shop-cat-title" id="shop-journal" style="text-align:left;margin-top:2.2rem;">📔 Journal & Cozy</h2>
+    <div class="merch-grid">
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/33983737" target="_blank" rel="noopener"><img src="Images/opt/merch-33983737.webp" alt="Tibby and Friends ruled journal" loading="lazy" width="600" height="600"><div><h3>Ruled Journal</h3><span class="merch-price">$22.99</span></div></a>
+      <a class="merch-card" href="https://tibby-and-friends.printify.me/product/27444578" target="_blank" rel="noopener"><img src="Images/opt/merch-27444578.webp" alt="Velveteen Movie Night blanket" loading="lazy" width="600" height="600"><div><h3>Movie Night Blanket</h3><span class="merch-price">$38.52</span></div></a>
+    </div>
     <div class="printify-note">
       <div class="icon" style="font-size:2.5rem;">🖨️</div>
-      <div><h3>Print On Demand via Printify</h3><p>Every item is made to order with love — no waste, always fresh.</p></div>
+      <div><h3>Print On Demand via Printify</h3><p>Every item is made to order. Checkout opens on the Printify store.</p></div>
     </div>
     <div style="text-align:center;margin-top:2rem;">
-      <a href="https://tibby-and-friends.printify.me" target="_blank" class="shop-cta-btn">🛒 Visit the Full Shop →</a>
+      <a href="https://tibby-and-friends.printify.me" target="_blank" rel="noopener" class="shop-cta-btn">🛒 Shop all merch →</a>
     </div>
   </div>
 </div>
@@ -1199,6 +1279,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="footer-links">
     <button onclick="showPage('home')">Home</button>
     <button onclick="showPage('books')">Books</button>
+    <button onclick="showPage('shop')">Shop</button>
     <a href="https://tibby-and-friends.printify.me" target="_blank" style="background:none;border:none;cursor:pointer;font-family:'Fredoka',system-ui,sans-serif;font-size:1rem;color:var(--yellow);text-decoration:none;">Merch Store</a>
     <button onclick="showPage('about')">About</button>
     <button onclick="showPage('contact')">Contact</button>
