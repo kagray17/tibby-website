@@ -253,7 +253,7 @@ nav { background:rgba(232,39,42,0.97); backdrop-filter:blur(6px); }
 .merch-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,320px)); justify-content:center; gap:1.5rem; }
 .merch-card { background:white; border-radius:20px; overflow:hidden; text-decoration:none; color:inherit; box-shadow:0 4px 16px rgba(0,0,0,0.08); border:3px solid transparent; transition:transform .2s; display:flex; flex-direction:column; }
 .merch-card:hover { transform:translateY(-6px); border-color:var(--red); }
-.merch-card img { width:100%; aspect-ratio:1/1; object-fit:contain; background:#fff; display:block; }
+.merch-card img { width:100%; aspect-ratio:1/1; object-fit:contain; background:#fff; display:block; height:auto; }
 .merch-card div { padding:1rem 1.2rem 1.3rem; }
 .merch-card h3 { font-size:1.15rem; color:var(--text); line-height:1.25; }
 .merch-card span { display:inline-block; margin-top:0.5rem; color:var(--red); font-weight:800; }
@@ -668,6 +668,59 @@ body.xmas-theme footer{ background:linear-gradient(180deg,#0F3D2E,#0A2A20); }
   body.xmas-theme .xm-peek{ padding:0 1.25rem; margin-top:1.5rem; }
   body.xmas-theme .xm-peek figure{ padding:8px; border-radius:20px; }
   body.xmas-theme .xm-peek figcaption{ font-size:.95rem; }
+}
+/* ---- XMAS: every page matches (page headers, cards, forms, menus) ---- */
+body.xmas-theme .page-header{ overflow:hidden; background:radial-gradient(640px 320px at 82% 20%,rgba(242,193,78,.24),transparent 62%),radial-gradient(520px 320px at 6% 96%,rgba(179,18,46,.32),transparent 60%),linear-gradient(170deg,#17573F 0%,#0F3D2E 55%,#0A2A20 100%); padding-top:5.2rem; }
+body.xmas-theme .page-header h1,body.xmas-theme .page-header p{ position:relative; z-index:3; }
+body.xmas-theme .page-header h1{ text-shadow:0 5px 0 rgba(0,0,0,.28); }
+body.xmas-theme .page-header p{ color:#FFF7EC; font-weight:600; }
+body.xmas-theme .page-header p::after{ content:""; display:block; width:74px; height:24px; margin:.7rem auto 0; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 74 24'%3E%3Cpath d='M35 13 C27 3 15 2 4 6 C9 8 9 12 6 15 C12 14 15 18 15 21 C21 16 29 16 35 13Z' fill='%234DB37A'/%3E%3Cpath d='M39 13 C47 3 59 2 70 6 C65 8 65 12 68 15 C62 14 59 18 59 21 C53 16 45 16 39 13Z' fill='%234DB37A'/%3E%3Ccircle cx='37' cy='9' r='4.2' fill='%23E0314F'/%3E%3Ccircle cx='32' cy='15' r='4.2' fill='%23F2445F'/%3E%3Ccircle cx='42' cy='15' r='4.2' fill='%23E0314F'/%3E%3C/svg%3E") center/contain no-repeat; }
+body.xmas-theme .page-header .decor{ z-index:1; }
+body.xmas-theme .page-header .d{ opacity:.45; }
+body.xmas-theme .page-header .xm-snow{ z-index:1; }
+/* holiday accent art from the book in About / Contact / Downloads headers */
+.xm-accent{ display:none; }
+body.xmas-theme .xm-accent{ display:block; position:absolute; z-index:2; right:max(3%,calc(50% - 560px)); top:50%; width:250px; margin:0; transform:translateY(-62%) rotate(3deg); background:#fff; padding:8px 8px 10px; border-radius:16px; box-shadow:0 18px 34px -12px rgba(0,0,0,.55); }
+body.xmas-theme .xm-accent::before{ content:"🎀"; position:absolute; top:-18px; left:50%; transform:translateX(-50%); font-size:1.7rem; filter:drop-shadow(0 2px 2px rgba(0,0,0,.3)); }
+body.xmas-theme .xm-accent img{ display:block; width:100%; height:auto; border-radius:10px; }
+body.xmas-theme .xm-accent.tall{ width:200px; }
+@media(max-width:1100px){ body.xmas-theme .xm-accent{ width:200px; } body.xmas-theme .xm-accent.tall{ width:160px; } }
+@media(max-width:900px){
+  body.xmas-theme .xm-accent,body.xmas-theme .xm-accent.tall{ position:relative; right:auto; top:auto; transform:rotate(-2deg); width:min(70%,260px); margin:1.7rem auto 0; padding:6px 6px 8px; }
+  body.xmas-theme .xm-accent.tall{ width:min(46%,170px); }
+}
+/* cards & sections on inner pages */
+body.xmas-theme .about-card,body.xmas-theme .contact-card,body.xmas-theme .shop-intro,body.xmas-theme #page-downloads .page-content>div:first-child{ background:repeating-linear-gradient(-45deg,#B3122E 0 9px,#fff 9px 18px) top/100% 7px no-repeat,#fff!important; }
+body.xmas-theme .about-text h2,body.xmas-theme .about-card>h2,body.xmas-theme .contact-card h2,body.xmas-theme .shop-intro h2{ color:var(--xm-pine)!important; }
+body.xmas-theme .about-text h2::after,body.xmas-theme .about-card>h2::after,body.xmas-theme .contact-card h2::after{ content:""; display:block; width:60px; height:20px; margin:.35rem 0 0; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 74 24'%3E%3Cpath d='M35 13 C27 3 15 2 4 6 C9 8 9 12 6 15 C12 14 15 18 15 21 C21 16 29 16 35 13Z' fill='%2317573F'/%3E%3Cpath d='M39 13 C47 3 59 2 70 6 C65 8 65 12 68 15 C62 14 59 18 59 21 C53 16 45 16 39 13Z' fill='%2317573F'/%3E%3Ccircle cx='37' cy='9' r='4.2' fill='%23B3122E'/%3E%3Ccircle cx='32' cy='15' r='4.2' fill='%23C8203A'/%3E%3Ccircle cx='42' cy='15' r='4.2' fill='%23B3122E'/%3E%3C/svg%3E") left center/contain no-repeat; }
+body.xmas-theme .series-head h3::after{ content:""; display:inline-block; vertical-align:middle; width:46px; height:16px; margin-left:.5rem; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 74 24'%3E%3Cpath d='M35 13 C27 3 15 2 4 6 C9 8 9 12 6 15 C12 14 15 18 15 21 C21 16 29 16 35 13Z' fill='%2317573F'/%3E%3Cpath d='M39 13 C47 3 59 2 70 6 C65 8 65 12 68 15 C62 14 59 18 59 21 C53 16 45 16 39 13Z' fill='%2317573F'/%3E%3Ccircle cx='37' cy='9' r='4.2' fill='%23B3122E'/%3E%3Ccircle cx='32' cy='15' r='4.2' fill='%23C8203A'/%3E%3Ccircle cx='42' cy='15' r='4.2' fill='%23B3122E'/%3E%3C/svg%3E") center/contain no-repeat; }
+body.xmas-theme .about-text h3{ color:var(--xm-cranberry)!important; }
+body.xmas-theme .about-photo img{ border-color:var(--xm-gold); }
+body.xmas-theme .about-photo figcaption{ color:var(--xm-pine); }
+body.xmas-theme .about-mission{ background:linear-gradient(135deg,#FFF4D6,#FDF1EC); border-left-color:var(--xm-cranberry); }
+body.xmas-theme .about-mission h3{ color:var(--xm-pine); }
+body.xmas-theme .paw-divider{ font-size:0; opacity:.75; }
+body.xmas-theme .paw-divider::before{ content:"❄️ 🐾 🎄 🐾 ❄️"; font-size:1.3rem; letter-spacing:.4rem; }
+body.xmas-theme .shop-cta-btn{ background:var(--xm-cranberry); color:#fff; border-color:var(--xm-cranberry-dark); box-shadow:0 4px 0 #5E0817; }
+body.xmas-theme .shop-cat-nav a{ background:#E4F2EA; color:var(--xm-pine); }
+body.xmas-theme .shop-cat-nav a:hover{ background:var(--xm-pine); color:#fff; }
+body.xmas-theme .shop-cat-title{ color:var(--xm-pine); }
+body.xmas-theme .printify-note{ background:linear-gradient(135deg,#0A2A20,#17573F); box-shadow:inset 0 0 0 2px rgba(242,193,78,.6); }
+body.xmas-theme .printify-note h3{ color:var(--xm-gold); }
+body.xmas-theme .printify-note p{ opacity:1; color:#FFF7EC; }
+body.xmas-theme .form-group input,body.xmas-theme .form-group textarea,body.xmas-theme .form-group select{ background:#FFFBF4; border-color:#E4D6C8; }
+body.xmas-theme .form-group input:focus,body.xmas-theme .form-group textarea:focus,body.xmas-theme .form-group select:focus{ border-color:var(--xm-pine); box-shadow:0 0 0 3px rgba(23,87,63,.18); }
+body.xmas-theme .lm-form input:focus{ outline-color:rgba(23,87,63,.3); border-color:var(--xm-pine); }
+body.xmas-theme .submit-btn{ background:var(--xm-cranberry); box-shadow:0 4px 0 #5E0817; }
+body.xmas-theme .filter-btn.active{ background:var(--xm-pine); box-shadow:0 8px 18px -8px rgba(15,61,46,.6); }
+body.xmas-theme .book-card:hover,body.xmas-theme .download-card:hover{ box-shadow:0 16px 30px -14px rgba(15,61,46,.45); }
+body.xmas-theme .series-holiday{ background:#FBE4E7; color:var(--xm-cranberry-dark); }
+body.xmas-theme .series-adventure{ background:#E4F2EA; color:var(--xm-pine); }
+body.xmas-theme .no-downloads{ color:#5c4a3e; }
+/* mobile menu */
+body.xmas-theme .nav-links.open{ background:#0A2A20; border-top:2px solid rgba(242,193,78,.55); box-shadow:0 14px 24px -10px rgba(0,0,0,.5); }
+@media(max-width:768px){
+  body.xmas-theme .page-header{ padding-top:3.6rem!important; }
 }
 /* ===================== END CHRISTMAS THEME ===================== */
 </style>
@@ -1112,6 +1165,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="page-header">
     <h1>🐾 About Us</h1>
     <p>The story behind Tibby &amp; Friends</p>
+    <figure class="xm-accent tall"><img src="Images/opt/xmas-about.webp" alt="Tibby, Maximus and Kolbe in holiday hats watching the snow fall, from The Gift of Christmas" width="600" height="643" loading="lazy" decoding="async"></figure><!-- XMAS accent -->
   </div>
   <div class="page-content">
     <div class="about-card">
@@ -1148,6 +1202,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="page-header">
     <h1>💌 Contact Us</h1>
     <p>We'd love to hear from you!</p>
+    <figure class="xm-accent"><img src="Images/opt/xmas-contact.webp" alt="The pups relaxing by the Christmas tree and fireplace, from The Gift of Christmas" width="700" height="324" loading="lazy" decoding="async"></figure><!-- XMAS accent -->
   </div>
   <div class="page-content">
     <div class="contact-wrap">
@@ -1181,6 +1236,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="page-header">
     <h1>🎨 Free Downloads</h1>
     <p>Free activity sheets &amp; coloring pages for your little reader!</p>
+    <figure class="xm-accent"><img src="Images/opt/xmas-downloads.webp" alt="The pups by the Christmas tree, stockings and fireplace, from The Gift of Christmas" width="700" height="387" loading="lazy" decoding="async"></figure><!-- XMAS accent -->
   </div>
   <div class="page-content">
 
@@ -1504,22 +1560,42 @@ document.getElementById('contactForm').addEventListener('submit', async function
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
 <script>fetch("https://assets.mailerlite.com/jsonp/2204811/forms/182334761001288864/takel")</script>
-<!-- XMAS: lightweight hero snowfall (skips on reduced motion, pauses off-screen) -->
+<!-- XMAS: lights, snow and festive icons on every page header -->
 <script>
 (function(){
-  var c=document.getElementById('xmSnow'); if(!c||!document.body.classList.contains("xmas-theme")) return;
+  if(!document.body.classList.contains("xmas-theme")) return;
+  var src=document.querySelector('.hero .xm-lights');
+  document.querySelectorAll('.page-header').forEach(function(h){
+    if(src) h.insertBefore(src.cloneNode(true),h.firstChild);
+    var d=document.createElement('div'); d.className='decor'; d.setAttribute('aria-hidden','true');
+    d.innerHTML='<span class="d d1">❄️</span><span class="d d4">⭐</span><span class="d d5">✨</span><span class="d d6">❄️</span>';
+    h.insertBefore(d,h.firstChild);
+    var c=document.createElement('canvas'); c.className='xm-snow'; c.setAttribute('aria-hidden','true'); h.insertBefore(c,h.firstChild);
+  });
+})();
+</script>
+<!-- XMAS: lightweight snowfall for the hero and every page header (skips on reduced motion, pauses off-screen / hidden pages) -->
+<script>
+(function(){
+  if(!document.body.classList.contains("xmas-theme")) return;
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var x=c.getContext('2d'), hero=c.parentNode, W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,2), flakes=[], on=true, raf=0;
-  function size(){ W=hero.clientWidth; H=hero.clientHeight; c.width=W*dpr; c.height=H*dpr; x.setTransform(dpr,0,0,dpr,0,0);
-    var n=W<768?22:48; flakes=[]; for(var i=0;i<n;i++) flakes.push({x:Math.random()*W,y:Math.random()*H,r:1+Math.random()*2.6,s:.3+Math.random()*.8,d:Math.random()*6.28}); }
-  function tick(){ x.clearRect(0,0,W,H); x.fillStyle='rgba(255,255,255,.85)'; x.beginPath();
-    for(var i=0;i<flakes.length;i++){ var f=flakes[i]; f.y+=f.s; f.d+=.01; f.x+=Math.sin(f.d)*.35; if(f.y>H+4){ f.y=-4; f.x=Math.random()*W; }
-      x.moveTo(f.x,f.y); x.arc(f.x,f.y,f.r,0,6.283); }
-    x.fill(); raf=on?requestAnimationFrame(tick):0; }
-  function start(){ if(!raf&&on&&!document.hidden) raf=requestAnimationFrame(tick); }
-  size(); start(); window.addEventListener('resize',function(){ size(); });
-  if('IntersectionObserver' in window) new IntersectionObserver(function(e){ on=e[0].isIntersecting; if(on) start(); }).observe(hero);
-  document.addEventListener('visibilitychange',function(){ if(document.hidden){ cancelAnimationFrame(raf); raf=0; } else start(); });
+  var dpr=Math.min(window.devicePixelRatio||1,2);
+  function Snow(c){
+    var x=c.getContext('2d'), box=c.parentNode, W=0,H=0, flakes=[], on=false, raf=0, hero=box.classList.contains('hero');
+    function size(){ var w=box.clientWidth, h=box.clientHeight; if(!w||!h) return false; if(w===W&&h===H) return true; W=w; H=h; c.width=W*dpr; c.height=H*dpr; x.setTransform(dpr,0,0,dpr,0,0);
+      var n=hero?(W<768?22:48):(W<768?14:30); flakes=[]; for(var i=0;i<n;i++) flakes.push({x:Math.random()*W,y:Math.random()*H,r:1+Math.random()*2.4,s:.3+Math.random()*.7,d:Math.random()*6.28}); return true; }
+    function tick(){ x.clearRect(0,0,W,H); x.fillStyle='rgba(255,255,255,.85)'; x.beginPath();
+      for(var i=0;i<flakes.length;i++){ var f=flakes[i]; f.y+=f.s; f.d+=.01; f.x+=Math.sin(f.d)*.35; if(f.y>H+4){ f.y=-4; f.x=Math.random()*W; }
+        x.moveTo(f.x,f.y); x.arc(f.x,f.y,f.r,0,6.283); }
+      x.fill(); raf=on&&!document.hidden?requestAnimationFrame(tick):0; }
+    function start(){ if(!raf&&on&&!document.hidden&&size()) raf=requestAnimationFrame(tick); }
+    function stop(){ cancelAnimationFrame(raf); raf=0; }
+    window.addEventListener('resize',function(){ W=0; size(); });
+    document.addEventListener('visibilitychange',function(){ if(document.hidden) stop(); else start(); });
+    if('IntersectionObserver' in window) new IntersectionObserver(function(e){ on=e[0].isIntersecting; if(on) start(); else stop(); }).observe(box);
+    else { on=true; start(); }
+  }
+  document.querySelectorAll('canvas.xm-snow').forEach(function(c){ Snow(c); });
 })();
 </script>
 </body>
