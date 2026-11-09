@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="Tibby &amp; Friends | Children's Picture Books">
 <meta name="twitter:description" content="Heartwarming stories about patience, inclusion and friendship. Available on Amazon.">
 <meta name="twitter:image" content="https://tibbyandfriends.com/Images/og-image.jpg">
-<link rel="preload" as="image" href="Images/opt/hero.webp">
+<link rel="preload" as="image" href="Images/opt/hero-xmas.webp"><!-- XMAS: was hero.webp -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Book","name":"Tibby and Friends at the Pizza Parlor","author":{"@type":"Person","name":"T. A. Barker"},"image":"https://tibbyandfriends.com/Images/opt/pizza.webp","url":"https://www.amazon.com/Tibby-Friends-Pizza-Parlor-Patience/dp/B0GK2M1YBZ/","isPartOf":{"@type":"BookSeries","name":"Tibby and Friends"},"description":"Andy is hungry, grumpy, and running out of patience! With the help of Tibby, Maximus, and Kolbe, Andy learns that waiting for something delicious is worth it—and that being patient can even be fun."},{"@type":"Book","name":"Tibby and Friends Go to a Baseball Game","author":{"@type":"Person","name":"T. A. Barker"},"image":"https://tibbyandfriends.com/Images/opt/baseball.webp","url":"https://www.amazon.com/Tibby-Friends-Go-Baseball-Game/dp/B0GKY14SLS/","isPartOf":{"@type":"BookSeries","name":"Tibby and Friends"},"description":"Join Tibby, Maximus, and Kolbe as they head out for a tail-wagging day at the baseball field! But the ballpark is loud—and Tibby, who's sensitive to noise, isn't so sure about all the cheering and clapping."},{"@type":"Book","name":"Tibby and Friends Make a Lemonade Stand","author":{"@type":"Person","name":"T. A. Barker"},"image":"https://tibbyandfriends.com/Images/opt/lemonade.webp","url":"https://www.amazon.com/Tibby-Friends-Make-Lemonade-Stand/dp/B0GKY19KMX/","isPartOf":{"@type":"BookSeries","name":"Tibby and Friends"},"description":"Join Tibby, Maximus, and Kolbe as they team up to build a lemonade stand, mix up something delicious, and spread smiles all around their neighborhood. With wagging tails, big hearts, and a whole lot of teamwork, these friends turn an ordinary day into something truly special."},{"@type":"Book","name":"Tibby and Friends Go to Lunch with Charlie","author":{"@type":"Person","name":"T. A. Barker"},"image":"https://tibbyandfriends.com/Images/opt/charlie.webp","url":"https://www.amazon.com/Tibby-Friends-Lunch-Charlie-Communication/dp/B0GKYFW37H/","isPartOf":{"@type":"BookSeries","name":"Tibby and Friends"},"description":"Join Tibby and the pups in this heartwarming story about friendship, inclusion, and empathy. When they go to lunch with their friend Charlie, a nonverbal dog who communicates in his own special way, the pups show that true friendship means making everyone feel welcome and understood."},{"@type":"Book","name":"Tibby and Friends Go Hiking","author":{"@type":"Person","name":"T. A. Barker"},"image":"https://tibbyandfriends.com/Images/opt/hiking.webp","url":"https://www.amazon.com/Tibby-Friends-Go-Hiking-Adventure/dp/B0HD7SV5GD/","isPartOf":{"@type":"BookSeries","name":"Tibby and Friends"},"description":"Tibby feels a little nervous about trying something new when he and the pups take their friend Penelope on a hiking and camping trip. Together they explore scenic trails, paddle across the water in a canoe, and camp under the stars, discovering that every adventure is easier with good friends by your side."},{"@type":"Book","name":"Tibby and Friends Celebrate the 4th of July","author":{"@type":"Person","name":"T. A. Barker"},"image":"https://tibbyandfriends.com/Images/opt/july4.webp","url":"https://www.amazon.com/Tibby-Friends-Celebrate-4th-July/dp/B0H29CP4Q1/","isPartOf":{"@type":"BookSeries","name":"Tibby and Friends"},"description":"While the loud booms and bright lights are a lot for Tibby, he comes prepared with his headphones and sunglasses to stay comfortable and still enjoy the fun. Join Tibby and Friends as they enjoy a backyard barbecue, games, sweet summer treats, and dazzling fireworks on the 4th of July."},{"@type":"Book","name":"Tibby and Friends Go Trick-or-Treating","author":{"@type":"Person","name":"T. A. Barker"},"image":"https://tibbyandfriends.com/Images/opt/halloween.webp","url":"https://www.amazon.com/Tibby-Friends-Trick-Treating-Friendship/dp/B0HKMV8KL6","isPartOf":{"@type":"BookSeries","name":"Tibby and Friends"},"description":"Tibby and the pups are putting on their costumes and heading out for a night of trick-or-treating, treats, surprises, and fun! As they make their way through the neighborhood, they discover that the best part of Halloween is being together and making sure everyone gets to enjoy the fun."},{"@type":"Book","name":"Tibby and Friends and the Gift of Christmas","author":{"@type":"Person","name":"T. A. Barker"},"image":"https://tibbyandfriends.com/Images/opt/christmas.webp","url":"https://www.amazon.com/dp/B0HR14B9MR","isPartOf":{"@type":"BookSeries","name":"Tibby and Friends"},"description":"Join Tibby and his friends as they discover that the best gifts don't always come wrapped in a bow. Through the excitement of the Christmas season, the pups learn that giving, sharing, and caring for others can make the holidays truly special."}]}</script>
 <link rel="icon" type="image/png" href="Images/favicon.png">
 <!-- Google Tag Manager -->
@@ -589,9 +589,90 @@ a:focus-visible,button:focus-visible,input:focus-visible{ outline:3px solid #1e6
 
 
 
+/* =====================================================================
+   🎄 CHRISTMAS THEME (Nov 2026, "The Gift of Christmas" launch)
+   Everything festive is scoped to body.xmas-theme.
+   TO REVERT AFTER THE HOLIDAYS: remove class="xmas-theme" from <body>
+   (or delete this whole block + the <!-- XMAS --> marked HTML/JS).
+   ===================================================================== */
+body.xmas-theme{
+  --xm-evergreen:#0F3D2E; --xm-evergreen-dark:#0A2A20; --xm-pine:#17573F;
+  --xm-cranberry:#B3122E; --xm-cranberry-dark:#860C21; --xm-gold:#F2C14E; --xm-snow:#FFF7EC;
+  --red:#B3122E; --red-dark:#860C21; --red-light:#E04A5F;
+  --yellow:#F2C14E; --sun:#F2C14E; --pine:#0F3D2E; --green:#17573F;
+}
+/* nav */
+body.xmas-theme nav{ background:rgba(15,61,46,.95); }
+body.xmas-theme nav.scrolled{ background:rgba(10,42,32,.95); }
+/* hero */
+body.xmas-theme .hero{ background:radial-gradient(700px 420px at 78% 38%,rgba(242,193,78,.28),transparent 62%),radial-gradient(520px 360px at 8% 92%,rgba(179,18,46,.35),transparent 60%),linear-gradient(170deg,#17573F 0%,#0F3D2E 55%,#0A2A20 100%); padding-top:6rem; }
+body.xmas-theme .hero h1{ text-shadow:0 5px 0 rgba(0,0,0,.28); }
+body.xmas-theme .hero h1 .xm-sub{ display:block; font-size:.42em; line-height:1.15; color:var(--xm-gold); text-shadow:0 3px 0 rgba(0,0,0,.25); margin-top:.35rem; }
+body.xmas-theme .hero-badge{ background:var(--xm-cranberry); border-color:rgba(255,255,255,.4); }
+body.xmas-theme .hero .btn-primary{ background:var(--xm-cranberry); color:#fff; box-shadow:0 6px 0 #5E0817,0 14px 24px -8px rgba(0,0,0,.45); }
+body.xmas-theme .hero .btn-primary:hover{ box-shadow:0 8px 0 #5E0817,0 18px 28px -8px rgba(0,0,0,.45); }
+body.xmas-theme .trust-chips li{ background:rgba(0,0,0,.2); }
+body.xmas-theme .hero-art::before{ background:radial-gradient(closest-side,rgba(255,226,140,.55),transparent 64%); }
+body.xmas-theme .d{ opacity:.5; }
+body.xmas-theme .xm-snow{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+/* string lights */
+.xm-lights{ display:none; }
+body.xmas-theme .xm-lights{ display:block; position:absolute; left:0; right:0; top:0; height:40px; overflow:hidden; white-space:nowrap; pointer-events:none; z-index:4; line-height:0; }
+body.xmas-theme .xm-lights i{ position:relative; display:inline-block; width:58px; height:40px; }
+body.xmas-theme .xm-lights i::before{ content:""; position:absolute; left:0; right:0; top:-16px; height:28px; border-bottom:2px solid #24382E; border-radius:50%; }
+body.xmas-theme .xm-lights i::after{ content:""; position:absolute; left:50%; top:12px; width:12px; height:19px; margin-left:-6px; border-radius:50% 50% 50% 50% / 40% 40% 60% 60%; background:var(--b,#F2C14E); box-shadow:0 0 6px 2px var(--g,rgba(242,193,78,.7)),0 -4px 0 -2px #3a3a3a; }
+body.xmas-theme .xm-lights i:nth-child(5n+1){ --b:#FF4D5E; --g:rgba(255,77,94,.75); }
+body.xmas-theme .xm-lights i:nth-child(5n+2){ --b:#FFD24D; --g:rgba(255,210,77,.75); }
+body.xmas-theme .xm-lights i:nth-child(5n+3){ --b:#4DD68B; --g:rgba(77,214,139,.7); }
+body.xmas-theme .xm-lights i:nth-child(5n+4){ --b:#5AB4FF; --g:rgba(90,180,255,.7); }
+body.xmas-theme .xm-lights i:nth-child(5n+5){ --b:#FF9AD5; --g:rgba(255,154,213,.7); }
+@keyframes xm-twinkle{ 0%,100%{ opacity:1; filter:brightness(1.15); } 50%{ opacity:.45; filter:brightness(.8); } }
+@media (prefers-reduced-motion:no-preference){
+  body.xmas-theme .xm-lights i::after{ animation:xm-twinkle 2.6s ease-in-out infinite!important; }
+  body.xmas-theme .xm-lights i:nth-child(3n+1)::after{ animation-delay:-.9s!important; }
+  body.xmas-theme .xm-lights i:nth-child(3n+2)::after{ animation-delay:-1.7s!important; animation-duration:3.1s!important; }
+  body.xmas-theme .xm-lights i:nth-child(4n)::after{ animation-duration:2.2s!important; }
+}
+/* holly accent under section titles */
+body.xmas-theme .section-title::after{ content:""; display:block; width:74px; height:24px; margin:.55rem auto 0; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 74 24'%3E%3Cpath d='M35 13 C27 3 15 2 4 6 C9 8 9 12 6 15 C12 14 15 18 15 21 C21 16 29 16 35 13Z' fill='%2317573F'/%3E%3Cpath d='M39 13 C47 3 59 2 70 6 C65 8 65 12 68 15 C62 14 59 18 59 21 C53 16 45 16 39 13Z' fill='%2317573F'/%3E%3Ccircle cx='37' cy='9' r='4.2' fill='%23B3122E'/%3E%3Ccircle cx='32' cy='15' r='4.2' fill='%23C8203A'/%3E%3Ccircle cx='42' cy='15' r='4.2' fill='%23B3122E'/%3E%3C/svg%3E") center/contain no-repeat; }
+body.xmas-theme .shop-cat-title::after{ margin-left:0; }
+body.xmas-theme .eyebrow{ background:#FBE4E7; color:var(--xm-cranberry); }
+body.xmas-theme .series-head h3{ color:var(--xm-pine); }
+/* new release = evergreen gift card with gold ribbon */
+body.xmas-theme .release-inner{ background:radial-gradient(520px 320px at 88% 12%,rgba(255,255,255,.09),transparent 60%),linear-gradient(135deg,#0A2A20,#0F3D2E 55%,#17573F); box-shadow:0 40px 80px -40px rgba(10,42,32,.85),inset 0 0 0 3px rgba(242,193,78,.55); }
+body.xmas-theme .release-inner::after{ background:radial-gradient(circle,rgba(255,255,255,.10),transparent 65%); }
+body.xmas-theme .release-inner::before{ content:""; position:absolute; inset:0; background-image:radial-gradient(2px 2px at 20px 30px,rgba(255,255,255,.9),transparent),radial-gradient(1.5px 1.5px at 120px 80px,rgba(255,255,255,.8),transparent),radial-gradient(1.5px 1.5px at 200px 20px,rgba(255,255,255,.8),transparent),radial-gradient(2px 2px at 300px 130px,rgba(255,255,255,.8),transparent); background-size:340px 180px; opacity:.4; pointer-events:none; }
+body.xmas-theme .release .eyebrow{ background:var(--xm-gold); color:#2A1A12; }
+body.xmas-theme .ticks li::before{ background:var(--xm-gold); }
+/* peek inside */
+.xm-peek{ display:none; }
+body.xmas-theme .xm-peek{ display:block; max-width:940px; margin:2rem auto 0; padding:0 2rem; text-align:center; }
+body.xmas-theme .xm-peek figure{ margin:0; background:#fff; border-radius:28px; padding:14px; box-shadow:var(--shadow); }
+body.xmas-theme .xm-peek img{ width:100%; height:auto; display:block; border-radius:18px; }
+body.xmas-theme .xm-peek figcaption{ font-family:'Fredoka',sans-serif; font-weight:600; color:var(--xm-pine); padding:.8rem .5rem .2rem; font-size:1.05rem; }
+/* cards & sections */
+body.xmas-theme .why-ic{ background:#E4F2EA; }
+body.xmas-theme .leadmag-inner{ background:linear-gradient(135deg,#FFF4D6,#F9E1E5); }
+body.xmas-theme .book-cover{ background:radial-gradient(circle at 50% 35%,#ffffff,#EAF3EE); }
+body.xmas-theme .merch-card:hover{ border-color:var(--xm-cranberry); }
+/* footer */
+body.xmas-theme footer{ background:linear-gradient(180deg,#0F3D2E,#0A2A20); }
+@media(max-width:768px){
+  body.xmas-theme .hero{ padding-top:3rem!important; }
+  body.xmas-theme .xm-lights{ height:32px; }
+  body.xmas-theme .xm-lights i{ width:44px; height:32px; }
+  body.xmas-theme .xm-lights i::after{ top:10px; width:9px; height:14px; margin-left:-4.5px; }
+  body.xmas-theme .hero h1{ text-shadow:0 3px 0 rgba(0,0,0,.28)!important; }
+  body.xmas-theme .hero h1 .xm-sub{ font-size:.5em; }
+  body.xmas-theme .hero-badge{ display:inline-block!important; font-size:.85rem; }
+  body.xmas-theme .xm-peek{ padding:0 1.25rem; margin-top:1.5rem; }
+  body.xmas-theme .xm-peek figure{ padding:8px; border-radius:20px; }
+  body.xmas-theme .xm-peek figcaption{ font-size:.95rem; }
+}
+/* ===================== END CHRISTMAS THEME ===================== */
 </style>
 </head>
-<body>
+<body class="xmas-theme"><!-- XMAS: remove class="xmas-theme" to turn the Christmas theme off -->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKR3FJHS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -615,19 +696,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- HOME -->
 <div class="page active" id="page-home">
   <header class="hero">
-    <div class="decor" aria-hidden="true"><span class="d d1">🐾</span><span class="d d2">⭐</span><span class="d d3">🦴</span><span class="d d4">✨</span><span class="d d5">🐾</span><span class="d d6">⭐</span><span class="d d7">🦴</span></div>
+    <!-- XMAS: lights, snow canvas and festive decor (original decor: 🐾⭐🦴✨🐾⭐🦴) -->
+    <div class="xm-lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <canvas class="xm-snow" id="xmSnow" aria-hidden="true"></canvas>
+    <div class="decor" aria-hidden="true"><span class="d d1">❄️</span><span class="d d2">⭐</span><span class="d d3">🎁</span><span class="d d4">✨</span><span class="d d5">❄️</span><span class="d d6">⭐</span><span class="d d7">🎄</span></div>
     <div class="hero-inner">
       <div class="hero-copy">
-        <div class="hero-badge">🐶 A Children's Picture Book Series</div>
-        <h1>Tibby &amp; Friends</h1>
-        <p class="hero-sub">Joyful stories for little readers who love big adventures, with gentle lessons in patience, kindness, and friendship.</p>
+        <!-- XMAS: holiday hero copy. Original: badge "🐶 A Children's Picture Book Series", h1 "Tibby &amp; Friends", sub "Joyful stories for little readers who love big adventures, with gentle lessons in patience, kindness, and friendship.", CTAs "📚 Shop on Amazon" (scrollToBooks) + "🛍️ Merch Store" -->
+        <div class="hero-badge">🎄 New Christmas Book · Out Now</div>
+        <h1>Tibby &amp; Friends <span class="xm-sub">and the Gift of Christmas</span></h1>
+        <p class="hero-sub">The pups are back for the holidays! Tibby, Maximus and Kolbe discover that the best gifts don't always come wrapped in a bow, and that giving, sharing, and caring make Christmas truly special.</p>
         <div class="hero-ctas">
-          <button onclick="scrollToBooks()" class="btn btn-primary">📚 Shop on Amazon</button>
-          <a href="https://tibby-and-friends.printify.me" target="_blank" rel="noopener" class="btn btn-ghost">🛍️ Merch Store</a>
+          <a href="https://www.amazon.com/dp/B0HR14B9MR" target="_blank" rel="noopener" class="btn btn-primary">🎁 Get the Gift of Christmas</a>
+          <button onclick="scrollToBooks()" class="btn btn-ghost">📚 See All 8 Books</button>
         </div>
-        <ul class="trust-chips"><li><b>7</b> picture books</li><li><b>2</b> series</li><li>📦 On Amazon</li><li>🎧 Sensory-friendly themes</li></ul>
+        <ul class="trust-chips"><li><b>8</b> picture books</li><li><b>2</b> series</li><li>📦 On Amazon</li><li>🎧 Sensory-friendly themes</li></ul>
       </div>
-      <div class="hero-art"><img src="Images/opt/hero.webp" alt="Tibby, Maximus and Kolbe, the Tibby and Friends dogs" width="1400" height="1003" fetchpriority="high"></div>
+      <div class="hero-art"><img src="Images/opt/hero-xmas.webp" alt="Tibby, Maximus and Kolbe dressed for Christmas in Santa hats, a winter beanie and cozy scarves" width="1152" height="864" fetchpriority="high"></div><!-- XMAS: was Images/opt/hero.webp 1400x1003 -->
     </div>
     <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0,64 C240,120 480,0 720,48 C960,96 1200,24 1440,64 L1440,120 L0,120 Z" fill="#FFF7EC"/></svg>
   </header>
@@ -646,6 +731,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
 
+
+  <!-- XMAS: peek inside the Christmas book (hidden when theme is off) -->
+  <section class="xm-peek reveal" aria-label="A peek inside the Christmas book">
+    <figure><a href="https://www.amazon.com/dp/B0HR14B9MR" target="_blank" rel="noopener"><img src="Images/opt/xmas-spread.webp" alt="A spread from Tibby and Friends and the Gift of Christmas: the pups by the Christmas tree and fireplace" loading="lazy" width="1200" height="906"></a>
+    <figcaption>🎄 A peek inside <em>The Gift of Christmas</em></figcaption></figure>
+  </section>
 
   <section class="greatfor reveal" aria-label="Great for">
     <h2>Stories that are great for…</h2>
@@ -1413,5 +1504,23 @@ document.getElementById('contactForm').addEventListener('submit', async function
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
 <script>fetch("https://assets.mailerlite.com/jsonp/2204811/forms/182334761001288864/takel")</script>
+<!-- XMAS: lightweight hero snowfall (skips on reduced motion, pauses off-screen) -->
+<script>
+(function(){
+  var c=document.getElementById('xmSnow'); if(!c||!document.body.classList.contains("xmas-theme")) return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var x=c.getContext('2d'), hero=c.parentNode, W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,2), flakes=[], on=true, raf=0;
+  function size(){ W=hero.clientWidth; H=hero.clientHeight; c.width=W*dpr; c.height=H*dpr; x.setTransform(dpr,0,0,dpr,0,0);
+    var n=W<768?22:48; flakes=[]; for(var i=0;i<n;i++) flakes.push({x:Math.random()*W,y:Math.random()*H,r:1+Math.random()*2.6,s:.3+Math.random()*.8,d:Math.random()*6.28}); }
+  function tick(){ x.clearRect(0,0,W,H); x.fillStyle='rgba(255,255,255,.85)'; x.beginPath();
+    for(var i=0;i<flakes.length;i++){ var f=flakes[i]; f.y+=f.s; f.d+=.01; f.x+=Math.sin(f.d)*.35; if(f.y>H+4){ f.y=-4; f.x=Math.random()*W; }
+      x.moveTo(f.x,f.y); x.arc(f.x,f.y,f.r,0,6.283); }
+    x.fill(); raf=on?requestAnimationFrame(tick):0; }
+  function start(){ if(!raf&&on&&!document.hidden) raf=requestAnimationFrame(tick); }
+  size(); start(); window.addEventListener('resize',function(){ size(); });
+  if('IntersectionObserver' in window) new IntersectionObserver(function(e){ on=e[0].isIntersecting; if(on) start(); }).observe(hero);
+  document.addEventListener('visibilitychange',function(){ if(document.hidden){ cancelAnimationFrame(raf); raf=0; } else start(); });
+})();
+</script>
 </body>
 </html>
